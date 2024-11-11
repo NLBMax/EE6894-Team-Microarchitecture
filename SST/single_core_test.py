@@ -15,11 +15,16 @@ comp_cpu.addParams({
         #"addressoffset" : 1024, # Stream between addresses 1024 & 16384
         #"memSize" : 1024*4
 })
-cpugen = comp_cpu.setSubComponent("generator", "miranda.STREAMBenchGenerator")
+
+cpugen = comp_cpu.setSubComponent("generator", "miranda.GUPSGenerator")
 cpugen.addParams({
-        "verbose" : 0,
-        "n" : 10000,
-        "operandwidth" : 16,
+        "iterations" : 100,
+        "count" : 1000,
+        "reqLength" : 16,
+        "memStart" : 0,
+        "memLength" : "512MB",
+        "seed_a" : 11,
+        "seed_b" : 31,
 })
 
 # Tell SST what statistics handling we want
