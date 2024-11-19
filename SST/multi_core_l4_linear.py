@@ -21,13 +21,18 @@ DEBUG_L3 = 0
 DEBUG_L4 = 0
 DEBUG_DIR = 0
 
+l2_start_port = 0
+l3_start_port = cores
+l4_start_port = cores + caches
+dir_start_port = cores + caches * 2
+
 # Create merlin network - this is just simple single router
 network = sst.Component("network", "merlin.hr_router")
 network.addParams({
       "xbar_bw" : network_bw,
       "link_bw" : network_bw,
       "input_buf_size" : "2KiB",
-      "num_ports" : cores + caches + memories,
+      "num_ports" : cores + caches*2 + memories,
       "flit_size" : "36B",
       "output_buf_size" : "2KiB",
       "id" : "0",  
@@ -78,7 +83,7 @@ for x in range(cores):
         "access_latency_cycles" : 14,
         "tag_access_latency_cycles" : 2,
         "mshr_latency_cycles" : 4,
-        "replacement_policy" : "nmru",
+        "replacement_policy" : "lfu",
         "coherence_protocol" : coherence,
         "cache_size" : "64KiB",
         "associativity" : 8,
@@ -106,73 +111,75 @@ for x in range(cores):
     l1_l2_link.connect( (l1cache, "low_network_0", "100ps"), (l2tl1, "port", "100ps") )
 
     l2_network_link = sst.Link("link_l2_network_" + str(x))
-    l2_network_link.connect( (l2nic, "port", "100ps"), (network, "port" + str(x), "100ps") )
+    l2_network_link.connect( (l2nic, "port", "100ps"), (network, "port" + str(l2_start_port + x), "100ps") )
 
 for x in range(caches):
     l3cache = sst.Component("l3cache" + str(x), "memHierarchy.Cache")
     l3cache.addParams({
-        "cache_frequency": "2.4 GHz",
+        "cache_frequency": uncoreclock,
         "access_latency_cycles": 63,
         "tag_access_latency_cycles": 6,
         "mshr_latency_cycles": 12,
-        "replacement_policy": "lru",
-        "coherence_protocol": "MESI",
-        "cache_size": "40KiB",
-        "associativity": 2,
-        "prefetcher": "cassini.SESPrefetcher",
+        "replacement_policy": "lfu",
+        "coherence_protocol": coherence,
+        "cache_size": "200KiB",
+        "associativity": 16,
         "mshr_num_entries": 8,
+        "num_cache_slices": caches,
+        "slice_allocation_policy": "rr",
+        "slice_id": x,
+        "debug": DEBUG_L3,
+        "debug_level": 10,
     })
-    # l3nic = l3cache.setSubComponent("cpulink", "memHierarchy.MemNIC")
-    # l3nic.addParams({
-    #     "group" : 2,
-    #     "network_bw" : network_bw,
-    #     "network_input_buffer_size" : "2KiB",
-    #     "network_output_buffer_size" : "2KiB",
-    # })
+    l3cache.setSubComponent("prefetcher", "cassini.NextBlockPrefetcher")
+
+    # Configure MemNIC for L3
+    l3_mem_nic = l3cache.setSubComponent("memlink", "memHierarchy.MemNIC")
+    l3_mem_nic.addParams({
+        "group": 2,
+        "network_bw": network_bw,
+        "network_input_buffer_size": "2KiB",
+        "network_output_buffer_size": "2KiB",
+    })
+
+    # Connect L3 to network
+    l3_network_port = l3_start_port + x  # Assign ports after L2
+    l3_network_link = sst.Link("link_l3_network_" + str(x))
+    l3_network_link.connect((l3_mem_nic, "port", "100ps"), (network, "port" + str(l3_network_port), "100ps"))
 
 
+for x in range(caches):
     l4cache = sst.Component("l4cache" + str(x), "memHierarchy.Cache")
     l4cache.addParams({
-        "cache_frequency" : uncoreclock,
-        "access_latency_cycles" : 63,
-        "tag_access_latency_cycles" : 6,
-        "mshr_latency_cycles" : 12,
-        "replacement_policy" : "random",
-        "coherence_protocol" : coherence,
-        "cache_size" : "16MiB",
-        "associativity" : 32,
-        "mshr_num_entries" : 8,
-        # Distributed cache parameters
-        "num_cache_slices" : caches,
-        "slice_allocation_policy" : "rr", # Round-robin
-        "slice_id" : x,
-        "debug" : DEBUG_L4,
-        "prefetcher": "cassini.SESPrefetcher",
-        #"debug_addr" : "[1152]",
-        "debug_level" : 10,
+        "cache_frequency": uncoreclock,
+        "access_latency_cycles": 63,
+        "tag_access_latency_cycles": 6,
+        "mshr_latency_cycles": 12,
+        "replacement_policy": "lfu",
+        "coherence_protocol": coherence,
+        "cache_size": "16MiB",
+        "associativity": 16,
+        "mshr_num_entries": 8,
+        "num_cache_slices": caches,
+        "slice_allocation_policy": "rr",
+        "slice_id": x,
+        "debug": DEBUG_L4,
+        "debug_level": 10,
     })
+    l4cache.setSubComponent("prefetcher", "cassini.NextBlockPrefetcher")
 
-    l4tl3 = l3cache.setSubComponent("cpulink", "memHierarchy.MemLink")
-    l4nic = l4cache.setSubComponent("memlink", "memHierarchy.MemNIC")
-    l4nic.addParams({
-        "group" : 2,
-        "network_bw" : network_bw,
-        "network_input_buffer_size" : "2KiB",
-        "network_output_buffer_size" : "2KiB",
+    # Configure MemNIC for L4
+    l4_mem_nic = l4cache.setSubComponent("memlink", "memHierarchy.MemNIC")
+    l4_mem_nic.addParams({
+        "group": 3,
+        "network_bw": network_bw,
+        "network_input_buffer_size": "2KiB",
+        "network_output_buffer_size": "2KiB",
     })
-
-    # l3_l4_link = sst.Link("link_l3_l4_" + str(x))
-    # l3_l4_link.connect( (l3cache, "low_network_0", "100ps"), (l4cache, "high_network_0", "100ps") )
-
-
-    l3_l4_link = sst.Link("link_l3_l4_" + str(x))
-    l3_l4_link.connect( (l3cache, "low_network_0", "100ps"), (l4tl3, "port", "100ps") )
-
-    portid = x + cores
+    # Connect L4 to network
+    l4_network_port = l4_start_port + x  # Assign ports after L3
     l4_network_link = sst.Link("link_l4_network_" + str(x))
-    l4_network_link.connect( (l4nic, "port", "100ps"), (network, "port" + str(portid), "100ps") )
-
-
+    l4_network_link.connect((l4_mem_nic, "port", "100ps"), (network, "port" + str(l4_network_port), "100ps"))
 
 
 for x in range(memories):
@@ -193,7 +200,7 @@ for x in range(memories):
     dirtoM = directory.setSubComponent("memlink", "memHierarchy.MemLink")
     dirnic = directory.setSubComponent("cpulink", "memHierarchy.MemNIC")
     dirnic.addParams({
-        "group" : 3,
+        "group" : 4,
         "network_bw" : network_bw,
         "network_input_buffer_size" : "2KiB",
         "network_output_buffer_size" : "2KiB",
@@ -220,7 +227,7 @@ for x in range(memories):
         "row_policy" : "closed",
     })
 
-    portid = x + caches + cores
+    portid = dir_start_port + x
     link_directory_network = sst.Link("link_directory_network_" + str(x))
     link_directory_network.connect( (dirnic, "port", "100ps"), (network, "port" + str(portid), "100ps") )
     
@@ -228,7 +235,7 @@ for x in range(memories):
     link_directory_memory_network.connect( (dirtoM, "port", "400ps"), (memctrl, "direct_link", "400ps") )
 
 # Enable statistics
-sst.setStatisticLoadLevel(7)
+sst.setStatisticLoadLevel(11)
 sst.setStatisticOutput("sst.statOutputConsole")
 for a in componentlist:
     sst.enableAllStatisticsForComponentType(a)
