@@ -47,22 +47,22 @@ for x in range(cores):
     })
 
 
-    # cpugen = cpu.setSubComponent("generator", "miranda.GUPSGenerator")
-    # cpugen.addParams({
-    #         "iterations" : 100,
-    #         "count" : 1000,
-    #         "reqLength" : 16,
-    #         "memStart" : 0,
-    #         "memLength" : "512MB",
-    #         "seed_a" : 11,
-    #         "seed_b" : 31,
-    # })
-    gen = cpu.setSubComponent("generator", "miranda.STREAMBenchGenerator")
-    gen.addParams({
-    	"verbose" : 0,
-    	"n" : 10000,
-            "operandwidth" : 16,
+    cpugen = cpu.setSubComponent("generator", "miranda.GUPSGenerator")
+    cpugen.addParams({
+            "iterations" : 100,
+            "count" : 100,
+            "reqLength" : 16,
+            "memStart" : 0,
+            "memLength" : "512MB",
+            "seed_a" : 11,
+            "seed_b" : 31,
     })
+    # gen = cpu.setSubComponent("generator", "miranda.STREAMBenchGenerator")
+    # gen.addParams({
+    # 	"verbose" : 0,
+    # 	"n" : 10000,
+    #         "operandwidth" : 16,
+    # })
     # gen = cpu.setSubComponent("generator", "miranda.SPMVGenerator")
     # gen.addParams({
     #     "matrix_nx" : 3000,
@@ -123,7 +123,7 @@ for x in range(cores):
         "debug_level" : 10,
         "max_outstanding_prefetch" : 2, 
     })
-    l1cache.setSubComponent("prefetcher", "cassini.StridePrefetcher")
+    l1cache.setSubComponent("prefetcher", "cassini.NextBlockPrefetcher")
 
     l2cache = sst.Component("l2cache" + str(x), "memHierarchy.Cache")
     l2cache.addParams({
@@ -142,7 +142,7 @@ for x in range(cores):
         #"debug_addr" : "[1152]",
         "debug_level" : 10,
     })
-    l2cache.setSubComponent("prefetcher", "cassini.StridePrefetcher")
+    l2cache.setSubComponent("prefetcher", "cassini.NextBlockPrefetcher")
     l2tl1 = l2cache.setSubComponent("cpulink", "memHierarchy.MemLink")
     l2nic = l2cache.setSubComponent("memlink", "memHierarchy.MemNIC")
     l2nic.addParams({
@@ -179,7 +179,12 @@ for x in range(caches):
         "debug": DEBUG_L3,
         "debug_level": 10,
     })
-    l3cache.setSubComponent("prefetcher", "cassini.StridePrefetcher")
+
+    ###########
+    #Important#
+    ###########
+    # Only change this prefetcher to verify the prefetcher of Cloak architecture
+    l3cache.setSubComponent("prefetcher", "cassini.SESPrefetcher")
 
     # Configure MemNIC for L3
     l3_mem_nic = l3cache.setSubComponent("memlink", "memHierarchy.MemNIC")
@@ -214,7 +219,7 @@ for x in range(caches):
         "debug": DEBUG_L4,
         "debug_level": 10,
     })
-    l4cache.setSubComponent("prefetcher", "cassini.StridePrefetcher")
+    l4cache.setSubComponent("prefetcher", "cassini.NextBlockPrefetcher")
 
     # Configure MemNIC for L4
     l4_mem_nic = l4cache.setSubComponent("memlink", "memHierarchy.MemNIC")
