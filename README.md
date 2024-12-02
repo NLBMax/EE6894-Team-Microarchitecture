@@ -10,14 +10,18 @@ This document describes how to install Rev on Linux. For more detailed instructi
 As mentioned above, the Rev SST model supports standard ELF binary payloads as input to the model. As a result, we need a cross-compilation framework to build source code into suitable binaries. We recommend using [riscv-gnu-toolchain](https://github.com/riscv/riscv-gnu-toolchain) as the compiler.
 
 ### **Installing riscv-gnu-toolchain**
-Here is a brief description of how to install the RISC-V GNU toolchain. For more details, refer to the GitHub repository above.
+Several standard packages are needed to build the toolchain.
+```bash
+$ sudo apt-get install autoconf automake autotools-dev curl python3 python3-pip libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev libexpat-dev ninja-build git cmake libglib2.0-dev libslirp-dev
+```
 
+Here is a brief description of how to install the RISC-V GNU toolchain. For more details, refer to the GitHub repository above.
 ```bash
 git clone https://github.com/riscv/riscv-gnu-toolchain
 cd riscv-gnu-toolchain
 git submodule update --init --recursive
 ./configure --prefix=/opt/riscv --enable-multilib
-make
+make linux
 ```
 
 ## **2. Building RISC CPU**
