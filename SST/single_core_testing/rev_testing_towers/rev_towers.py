@@ -1,72 +1,69 @@
+import os
 import sst
 
 # Define SST core options
 #sst.setProgramOption("timebase", "1ps")
 
 # Define the simulation components
-comp_cpu = sst.Component("cpu", "miranda.BaseCPU")
-comp_cpu.addParams({
-        "verbose" : 0,
-        "clock" : "2.4GHz",
-})
+# comp_cpu = sst.Component("cpu", "miranda.BaseCPU")
+# comp_cpu.addParams({
+#         "verbose" : 0,
+#         "clock" : "2.4GHz",
+# })
 
-# cpugen = comp_cpu.setSubComponent("generator", "miranda.GUPSGenerator")
-# cpugen.addParams({
-#         "iterations" : 100,
-#         "count" : 1000,
-#         "reqLength" : 16,
-#         "memStart" : 0,
-#         "memLength" : "512MB",
-#         "seed_a" : 11,
-#         "seed_b" : 31,
-# })
-# gen = comp_cpu.setSubComponent("generator", "miranda.STREAMBenchGenerator")
-# gen.addParams({
-# 	"verbose" : 0,
-# 	"n" : 100000,
-#         "operandwidth" : 16,
-# })
-# gen = comp_cpu.setSubComponent("generator", "miranda.SPMVGenerator")
-# gen.addParams({
-#     "matrix_nx" : 3000,
-#     "matrix_ny" : 3000,
-#     "element_width" : 8,
-#     "lhs_start_addr" : 0,
-#     "rhs_start_addr" : 3000,
-#     "local_row_start" : 0,
-#     "local_row_end" : 10000,
-#     "ordinal_width" : 8,
-#     "matrix_row_indices_start_addr" : 0,
-#     "matrix_col_indices_start_addr" : 0,
-#     "matrix_element_start_addr" : 0,
-#     "iterations" : 1,
-#     "matrix_nnz_per_row" : 9
-# })
-# gen = comp_cpu.setSubComponent("generator", "miranda.Stencil3DBenchGenerator")
+# gen = comp_cpu.setSubComponent("generator", "miranda.Stake")
 # gen.addParams({
 #     "verbose" : 0,
-#     "nx" : 20,
-#     "ny" : 20,
-#     "nz" : 20,
-#     "datawidth" : 8,
-#     "startz" : 0,
-#     "endz" : 20,
-#     "iterations" : 1,
+#     "log" : "false",
+#     "cores" : 1,
+#     "mem_size" : "2048",
+#     "pc" : "0x80000000",
+#     "isa" : "RV64IMAFDC",
+#     "proxy_kernel" : "pk",
+#     "bin" : "./mult.mem",
+#     "args" : "",
+#     "ext" : "",
+#     "extlib" : ""
 # })
-gen = comp_cpu.setSubComponent("generator", "miranda.Stake")
-gen.addParams({
-    "verbose" : 0,
-    "log" : "false",
-    "cores" : 1,
-    "mem_size" : "2048",
-    "pc" : "0x80000000",
-    "isa" : "RV64IMAFDC",
-    "proxy_kernel" : "pk",
-    "bin" : "./mult.mem",
-    "args" : "",
-    "ext" : "",
-    "extlib" : ""
+
+
+DEBUG_L1 = 1
+DEBUG_MEM = 10
+DEBUG_LEVEL = 10
+VERBOSE = 10
+MEM_SIZE = 1024*1024*1024-1
+
+# Define the simulation components
+comp_cpu = sst.Component("cpu", "revcpu.RevCPU")
+comp_cpu.addParams({
+        "verbose" : 10,                                # Verbosity
+        "numCores" : 1,                               # Number of cores
+        "clock" : "2.0GHz",                           # Clock
+        "memSize" : MEM_SIZE,                         # Memory size in bytes
+        "machine" : "[0:rv64imafd]",              # Core:Config; RV64G for core 0
+        "startAddr" : "[0:0x00000000]",               # Starting address for core 0
+        "memCost" : "[0:1:10]",                       # Memory loads required 1-10 cycles
+        "program" : os.getenv("REV_EXE", "towers.exe"),  # Target executable
+        "enable_memH" : 1,                            # Enable memHierarchy support
+        "splash" : 1                              # Display the splash message
 })
+comp_cpu.enableAllStatistics()
+
+# Create the RevMemCtrl subcomponent
+comp_lsq = comp_cpu.setSubComponent("memory", "revcpu.RevBasicMemCtrl");
+comp_lsq.addParams({
+      "verbose"         : "10",
+      "clock"           : "2.0Ghz",
+      "max_loads"       : 64,
+      "max_stores"      : 64,
+      "max_flush"       : 64,
+      "max_llsc"        : 64,
+      "max_readlock"    : 64,
+      "max_writeunlock" : 64,
+      "max_custom"      : 64,
+      "ops_per_cycle"   : 64
+})
+
 # Tell SST what statistics handling we want
 sst.setStatisticLoadLevel(4)
 
@@ -88,7 +85,10 @@ comp_l1cache.addParams({
       "L1" : "1",
       "cache_size" : "32KB"
 })
-iface = comp_cpu.setSubComponent("memory", "memHierarchy.standardInterface")
+iface = comp_lsq.setSubComponent("memIface", "memHierarchy.standardInterface")
+iface.addParams({
+      "verbose" : VERBOSE
+})
 # Enable statistics outputs
 comp_l1cache.enableAllStatistics({"type":"sst.AccumulatorStatistic"})
 cpu_l1_link = sst.Link("link_cpu_cache1_")
@@ -160,16 +160,18 @@ l3_l4_link.connect ( (comp_l3cache, "low_network_0", "500ps"), (comp_l4cache, "h
 
 memctrl = sst.Component("memory", "memHierarchy.MemController")
 memctrl.addParams({
-    "clock" : "500MHz",
-    "backing" : "none",
+    "debug" : DEBUG_MEM,
+    "debug_level" : DEBUG_LEVEL,
+    "clock" : "2GHz",
+    "verbose" : VERBOSE,
     "addr_range_start" : 0,
+    "addr_range_end" : MEM_SIZE,
+    "backing" : "malloc"
 })
 memory = memctrl.setSubComponent("backend", "memHierarchy.simpleMem")
 memory.addParams({
-    "max_requests_per_cycle" : 2,
-    "mem_size" : "1GiB",
-    "access_time" : "50ns",
-
+     "access_time" : "100ns",
+    "mem_size" : "8GB"
 })
 comp_l3cache.enableAllStatistics({"type":"sst.AccumulatorStatistic"})
 comp_l4cache.enableAllStatistics({"type":"sst.AccumulatorStatistic"})
