@@ -51,6 +51,7 @@ These dependencies may be available through your operating system's package mana
   ```bash
   ./configure --prefix=<install_path> --with-sst-core=<install_path>
   ```
+- Note: If you want to add Single Exponential Smoothing Prefechter into the element, configuration details can be found in the `ses prefetcher` prefetcher folder inside `multi_core_testing` directory.
 - Compile and install:
   ```bash
   make

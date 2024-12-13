@@ -1,0 +1,629 @@
+--- /home/msi/scratch/src/sst-elements-library-14.0.0/src/sst/elements/memHierarchy/tests/stencil_sesprefetch.log ---
+ l1cache0.CacheHits : Accumulator : Sum.u64 = 161927; SumSQ.u64 = 161927; Count.u64 = 161927; Min.u64 = 1; Max.u64 = 1; 
+ l1cache0.CacheMisses : Accumulator : Sum.u64 = 2648; SumSQ.u64 = 2648; Count.u64 = 2648; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheHits : Accumulator : Sum.u64 = 217; SumSQ.u64 = 217; Count.u64 = 217; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheMisses : Accumulator : Sum.u64 = 2663; SumSQ.u64 = 2663; Count.u64 = 2663; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheHits : Accumulator : Sum.u64 = 161941; SumSQ.u64 = 161941; Count.u64 = 161941; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheMisses : Accumulator : Sum.u64 = 2649; SumSQ.u64 = 2649; Count.u64 = 2649; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheHits : Accumulator : Sum.u64 = 239; SumSQ.u64 = 239; Count.u64 = 239; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheMisses : Accumulator : Sum.u64 = 2667; SumSQ.u64 = 2667; Count.u64 = 2667; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheHits : Accumulator : Sum.u64 = 161942; SumSQ.u64 = 161942; Count.u64 = 161942; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheMisses : Accumulator : Sum.u64 = 2694; SumSQ.u64 = 2694; Count.u64 = 2694; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheHits : Accumulator : Sum.u64 = 258; SumSQ.u64 = 258; Count.u64 = 258; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheMisses : Accumulator : Sum.u64 = 2714; SumSQ.u64 = 2714; Count.u64 = 2714; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheHits : Accumulator : Sum.u64 = 161930; SumSQ.u64 = 161930; Count.u64 = 161930; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheMisses : Accumulator : Sum.u64 = 2650; SumSQ.u64 = 2650; Count.u64 = 2650; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheHits : Accumulator : Sum.u64 = 231; SumSQ.u64 = 231; Count.u64 = 231; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheMisses : Accumulator : Sum.u64 = 2665; SumSQ.u64 = 2665; Count.u64 = 2665; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheHits : Accumulator : Sum.u64 = 2114; SumSQ.u64 = 2114; Count.u64 = 2114; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheMisses : Accumulator : Sum.u64 = 867; SumSQ.u64 = 867; Count.u64 = 867; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheHits : Accumulator : Sum.u64 = 2092; SumSQ.u64 = 2092; Count.u64 = 2092; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheMisses : Accumulator : Sum.u64 = 844; SumSQ.u64 = 844; Count.u64 = 844; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheHits : Accumulator : Sum.u64 = 2132; SumSQ.u64 = 2132; Count.u64 = 2132; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheMisses : Accumulator : Sum.u64 = 854; SumSQ.u64 = 854; Count.u64 = 854; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheHits : Accumulator : Sum.u64 = 2129; SumSQ.u64 = 2129; Count.u64 = 2129; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheMisses : Accumulator : Sum.u64 = 840; SumSQ.u64 = 840; Count.u64 = 840; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheHits : Accumulator : Sum.u64 = 184; SumSQ.u64 = 184; Count.u64 = 184; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheMisses : Accumulator : Sum.u64 = 942; SumSQ.u64 = 942; Count.u64 = 942; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheHits : Accumulator : Sum.u64 = 203; SumSQ.u64 = 203; Count.u64 = 203; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheMisses : Accumulator : Sum.u64 = 916; SumSQ.u64 = 916; Count.u64 = 916; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheHits : Accumulator : Sum.u64 = 196; SumSQ.u64 = 196; Count.u64 = 196; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheMisses : Accumulator : Sum.u64 = 931; SumSQ.u64 = 931; Count.u64 = 931; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheHits : Accumulator : Sum.u64 = 215; SumSQ.u64 = 215; Count.u64 = 215; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheMisses : Accumulator : Sum.u64 = 915; SumSQ.u64 = 915; Count.u64 = 915; Min.u64 = 1; Max.u64 = 1; 
+Simulation is complete, simulated time: 55.6278 us
+
+-------------------------------
+
+--- /home/msi/scratch/src/sst-elements-library-14.0.0/src/sst/elements/memHierarchy/tests/spmv_sesprefetch.log ---
+ l1cache0.CacheHits : Accumulator : Sum.u64 = 117365; SumSQ.u64 = 117365; Count.u64 = 117365; Min.u64 = 1; Max.u64 = 1; 
+ l1cache0.CacheMisses : Accumulator : Sum.u64 = 7743; SumSQ.u64 = 7743; Count.u64 = 7743; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheHits : Accumulator : Sum.u64 = 1263; SumSQ.u64 = 1263; Count.u64 = 1263; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheMisses : Accumulator : Sum.u64 = 7712; SumSQ.u64 = 7712; Count.u64 = 7712; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheHits : Accumulator : Sum.u64 = 117232; SumSQ.u64 = 117232; Count.u64 = 117232; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheMisses : Accumulator : Sum.u64 = 8086; SumSQ.u64 = 8086; Count.u64 = 8086; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheHits : Accumulator : Sum.u64 = 1564; SumSQ.u64 = 1564; Count.u64 = 1564; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheMisses : Accumulator : Sum.u64 = 8094; SumSQ.u64 = 8094; Count.u64 = 8094; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheHits : Accumulator : Sum.u64 = 117194; SumSQ.u64 = 117194; Count.u64 = 117194; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheMisses : Accumulator : Sum.u64 = 8034; SumSQ.u64 = 8034; Count.u64 = 8034; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheHits : Accumulator : Sum.u64 = 1214; SumSQ.u64 = 1214; Count.u64 = 1214; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheMisses : Accumulator : Sum.u64 = 8000; SumSQ.u64 = 8000; Count.u64 = 8000; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheHits : Accumulator : Sum.u64 = 117270; SumSQ.u64 = 117270; Count.u64 = 117270; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheMisses : Accumulator : Sum.u64 = 8040; SumSQ.u64 = 8040; Count.u64 = 8040; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheHits : Accumulator : Sum.u64 = 1596; SumSQ.u64 = 1596; Count.u64 = 1596; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheMisses : Accumulator : Sum.u64 = 8015; SumSQ.u64 = 8015; Count.u64 = 8015; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheHits : Accumulator : Sum.u64 = 6962; SumSQ.u64 = 6962; Count.u64 = 6962; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheMisses : Accumulator : Sum.u64 = 1445; SumSQ.u64 = 1445; Count.u64 = 1445; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheHits : Accumulator : Sum.u64 = 6876; SumSQ.u64 = 6876; Count.u64 = 6876; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheMisses : Accumulator : Sum.u64 = 1457; SumSQ.u64 = 1457; Count.u64 = 1457; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheHits : Accumulator : Sum.u64 = 6925; SumSQ.u64 = 6925; Count.u64 = 6925; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheMisses : Accumulator : Sum.u64 = 1444; SumSQ.u64 = 1444; Count.u64 = 1444; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheHits : Accumulator : Sum.u64 = 6982; SumSQ.u64 = 6982; Count.u64 = 6982; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheMisses : Accumulator : Sum.u64 = 1403; SumSQ.u64 = 1403; Count.u64 = 1403; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheHits : Accumulator : Sum.u64 = 434; SumSQ.u64 = 434; Count.u64 = 434; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheMisses : Accumulator : Sum.u64 = 1304; SumSQ.u64 = 1304; Count.u64 = 1304; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheHits : Accumulator : Sum.u64 = 414; SumSQ.u64 = 414; Count.u64 = 414; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheMisses : Accumulator : Sum.u64 = 1325; SumSQ.u64 = 1325; Count.u64 = 1325; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheHits : Accumulator : Sum.u64 = 449; SumSQ.u64 = 449; Count.u64 = 449; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheMisses : Accumulator : Sum.u64 = 1315; SumSQ.u64 = 1315; Count.u64 = 1315; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheHits : Accumulator : Sum.u64 = 394; SumSQ.u64 = 394; Count.u64 = 394; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheMisses : Accumulator : Sum.u64 = 1320; SumSQ.u64 = 1320; Count.u64 = 1320; Min.u64 = 1; Max.u64 = 1; 
+Simulation is complete, simulated time: 148.536 us
+
+-------------------------------
+
+--- /home/msi/scratch/src/sst-elements-library-14.0.0/src/sst/elements/memHierarchy/tests/strideprefetch.log ---
+ l1cache0.CacheHits : Accumulator : Sum.u64 = 55275; SumSQ.u64 = 55275; Count.u64 = 55275; Min.u64 = 1; Max.u64 = 1; 
+ l1cache0.CacheMisses : Accumulator : Sum.u64 = 157045; SumSQ.u64 = 157045; Count.u64 = 157045; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheHits : Accumulator : Sum.u64 = 8544; SumSQ.u64 = 8544; Count.u64 = 8544; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheMisses : Accumulator : Sum.u64 = 150564; SumSQ.u64 = 150564; Count.u64 = 150564; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheHits : Accumulator : Sum.u64 = 55333; SumSQ.u64 = 55333; Count.u64 = 55333; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheMisses : Accumulator : Sum.u64 = 156813; SumSQ.u64 = 156813; Count.u64 = 156813; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheHits : Accumulator : Sum.u64 = 8478; SumSQ.u64 = 8478; Count.u64 = 8478; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheMisses : Accumulator : Sum.u64 = 150378; SumSQ.u64 = 150378; Count.u64 = 150378; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheHits : Accumulator : Sum.u64 = 55409; SumSQ.u64 = 55409; Count.u64 = 55409; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheMisses : Accumulator : Sum.u64 = 156623; SumSQ.u64 = 156623; Count.u64 = 156623; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheHits : Accumulator : Sum.u64 = 8672; SumSQ.u64 = 8672; Count.u64 = 8672; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheMisses : Accumulator : Sum.u64 = 150026; SumSQ.u64 = 150026; Count.u64 = 150026; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheHits : Accumulator : Sum.u64 = 55167; SumSQ.u64 = 55167; Count.u64 = 55167; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheMisses : Accumulator : Sum.u64 = 157225; SumSQ.u64 = 157225; Count.u64 = 157225; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheHits : Accumulator : Sum.u64 = 8476; SumSQ.u64 = 8476; Count.u64 = 8476; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheMisses : Accumulator : Sum.u64 = 150852; SumSQ.u64 = 150852; Count.u64 = 150852; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheHits : Accumulator : Sum.u64 = 132668; SumSQ.u64 = 132668; Count.u64 = 132668; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheMisses : Accumulator : Sum.u64 = 45357; SumSQ.u64 = 45357; Count.u64 = 45357; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheHits : Accumulator : Sum.u64 = 133627; SumSQ.u64 = 133627; Count.u64 = 133627; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheMisses : Accumulator : Sum.u64 = 45634; SumSQ.u64 = 45634; Count.u64 = 45634; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheHits : Accumulator : Sum.u64 = 133917; SumSQ.u64 = 133917; Count.u64 = 133917; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheMisses : Accumulator : Sum.u64 = 45507; SumSQ.u64 = 45507; Count.u64 = 45507; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheHits : Accumulator : Sum.u64 = 133794; SumSQ.u64 = 133794; Count.u64 = 133794; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheMisses : Accumulator : Sum.u64 = 45233; SumSQ.u64 = 45233; Count.u64 = 45233; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheHits : Accumulator : Sum.u64 = 37573; SumSQ.u64 = 37573; Count.u64 = 37573; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheMisses : Accumulator : Sum.u64 = 13171; SumSQ.u64 = 13171; Count.u64 = 13171; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheHits : Accumulator : Sum.u64 = 38478; SumSQ.u64 = 38478; Count.u64 = 38478; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheMisses : Accumulator : Sum.u64 = 13251; SumSQ.u64 = 13251; Count.u64 = 13251; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheHits : Accumulator : Sum.u64 = 38114; SumSQ.u64 = 38114; Count.u64 = 38114; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheMisses : Accumulator : Sum.u64 = 13332; SumSQ.u64 = 13332; Count.u64 = 13332; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheHits : Accumulator : Sum.u64 = 38007; SumSQ.u64 = 38007; Count.u64 = 38007; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheMisses : Accumulator : Sum.u64 = 13264; SumSQ.u64 = 13264; Count.u64 = 13264; Min.u64 = 1; Max.u64 = 1; 
+Simulation is complete, simulated time: 1.02463 ms
+
+-------------------------------
+
+--- /home/msi/scratch/src/sst-elements-library-14.0.0/src/sst/elements/memHierarchy/tests/spmv_strideprefetch.log ---
+ l1cache0.CacheHits : Accumulator : Sum.u64 = 117211; SumSQ.u64 = 117211; Count.u64 = 117211; Min.u64 = 1; Max.u64 = 1; 
+ l1cache0.CacheMisses : Accumulator : Sum.u64 = 8036; SumSQ.u64 = 8036; Count.u64 = 8036; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheHits : Accumulator : Sum.u64 = 1411; SumSQ.u64 = 1411; Count.u64 = 1411; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheMisses : Accumulator : Sum.u64 = 8005; SumSQ.u64 = 8005; Count.u64 = 8005; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheHits : Accumulator : Sum.u64 = 117057; SumSQ.u64 = 117057; Count.u64 = 117057; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheMisses : Accumulator : Sum.u64 = 8208; SumSQ.u64 = 8208; Count.u64 = 8208; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheHits : Accumulator : Sum.u64 = 1055; SumSQ.u64 = 1055; Count.u64 = 1055; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheMisses : Accumulator : Sum.u64 = 8197; SumSQ.u64 = 8197; Count.u64 = 8197; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheHits : Accumulator : Sum.u64 = 117214; SumSQ.u64 = 117214; Count.u64 = 117214; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheMisses : Accumulator : Sum.u64 = 7963; SumSQ.u64 = 7963; Count.u64 = 7963; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheHits : Accumulator : Sum.u64 = 1192; SumSQ.u64 = 1192; Count.u64 = 1192; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheMisses : Accumulator : Sum.u64 = 7944; SumSQ.u64 = 7944; Count.u64 = 7944; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheHits : Accumulator : Sum.u64 = 117460; SumSQ.u64 = 117460; Count.u64 = 117460; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheMisses : Accumulator : Sum.u64 = 7587; SumSQ.u64 = 7587; Count.u64 = 7587; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheHits : Accumulator : Sum.u64 = 1426; SumSQ.u64 = 1426; Count.u64 = 1426; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheMisses : Accumulator : Sum.u64 = 7532; SumSQ.u64 = 7532; Count.u64 = 7532; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheHits : Accumulator : Sum.u64 = 6621; SumSQ.u64 = 6621; Count.u64 = 6621; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheMisses : Accumulator : Sum.u64 = 1948; SumSQ.u64 = 1948; Count.u64 = 1948; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheHits : Accumulator : Sum.u64 = 6684; SumSQ.u64 = 6684; Count.u64 = 6684; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheMisses : Accumulator : Sum.u64 = 1961; SumSQ.u64 = 1961; Count.u64 = 1961; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheHits : Accumulator : Sum.u64 = 6638; SumSQ.u64 = 6638; Count.u64 = 6638; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheMisses : Accumulator : Sum.u64 = 1929; SumSQ.u64 = 1929; Count.u64 = 1929; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheHits : Accumulator : Sum.u64 = 6707; SumSQ.u64 = 6707; Count.u64 = 6707; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheMisses : Accumulator : Sum.u64 = 1901; SumSQ.u64 = 1901; Count.u64 = 1901; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheHits : Accumulator : Sum.u64 = 796; SumSQ.u64 = 796; Count.u64 = 796; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheMisses : Accumulator : Sum.u64 = 1607; SumSQ.u64 = 1607; Count.u64 = 1607; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheHits : Accumulator : Sum.u64 = 853; SumSQ.u64 = 853; Count.u64 = 853; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheMisses : Accumulator : Sum.u64 = 1604; SumSQ.u64 = 1604; Count.u64 = 1604; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheHits : Accumulator : Sum.u64 = 842; SumSQ.u64 = 842; Count.u64 = 842; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheMisses : Accumulator : Sum.u64 = 1584; SumSQ.u64 = 1584; Count.u64 = 1584; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheHits : Accumulator : Sum.u64 = 802; SumSQ.u64 = 802; Count.u64 = 802; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheMisses : Accumulator : Sum.u64 = 1604; SumSQ.u64 = 1604; Count.u64 = 1604; Min.u64 = 1; Max.u64 = 1; 
+Simulation is complete, simulated time: 160.072 us
+
+-------------------------------
+
+--- /home/msi/scratch/src/sst-elements-library-14.0.0/src/sst/elements/memHierarchy/tests/stream_nbprefetch.log ---
+ l1cache0.CacheHits : Accumulator : Sum.u64 = 23769; SumSQ.u64 = 23769; Count.u64 = 23769; Min.u64 = 1; Max.u64 = 1; 
+ l1cache0.CacheMisses : Accumulator : Sum.u64 = 8349; SumSQ.u64 = 8349; Count.u64 = 8349; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheHits : Accumulator : Sum.u64 = 159; SumSQ.u64 = 159; Count.u64 = 159; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheMisses : Accumulator : Sum.u64 = 8372; SumSQ.u64 = 8372; Count.u64 = 8372; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheHits : Accumulator : Sum.u64 = 23778; SumSQ.u64 = 23778; Count.u64 = 23778; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheMisses : Accumulator : Sum.u64 = 8329; SumSQ.u64 = 8329; Count.u64 = 8329; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheHits : Accumulator : Sum.u64 = 143; SumSQ.u64 = 143; Count.u64 = 143; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheMisses : Accumulator : Sum.u64 = 8343; SumSQ.u64 = 8343; Count.u64 = 8343; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheHits : Accumulator : Sum.u64 = 23765; SumSQ.u64 = 23765; Count.u64 = 23765; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheMisses : Accumulator : Sum.u64 = 8370; SumSQ.u64 = 8370; Count.u64 = 8370; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheHits : Accumulator : Sum.u64 = 145; SumSQ.u64 = 145; Count.u64 = 145; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheMisses : Accumulator : Sum.u64 = 8385; SumSQ.u64 = 8385; Count.u64 = 8385; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheHits : Accumulator : Sum.u64 = 23743; SumSQ.u64 = 23743; Count.u64 = 23743; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheMisses : Accumulator : Sum.u64 = 8326; SumSQ.u64 = 8326; Count.u64 = 8326; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheHits : Accumulator : Sum.u64 = 147; SumSQ.u64 = 147; Count.u64 = 147; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheMisses : Accumulator : Sum.u64 = 8348; SumSQ.u64 = 8348; Count.u64 = 8348; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheHits : Accumulator : Sum.u64 = 5920; SumSQ.u64 = 5920; Count.u64 = 5920; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheMisses : Accumulator : Sum.u64 = 3811; SumSQ.u64 = 3811; Count.u64 = 3811; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheHits : Accumulator : Sum.u64 = 5929; SumSQ.u64 = 5929; Count.u64 = 5929; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheMisses : Accumulator : Sum.u64 = 3815; SumSQ.u64 = 3815; Count.u64 = 3815; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheHits : Accumulator : Sum.u64 = 5925; SumSQ.u64 = 5925; Count.u64 = 5925; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheMisses : Accumulator : Sum.u64 = 3794; SumSQ.u64 = 3794; Count.u64 = 3794; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheHits : Accumulator : Sum.u64 = 5940; SumSQ.u64 = 5940; Count.u64 = 5940; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheMisses : Accumulator : Sum.u64 = 3798; SumSQ.u64 = 3798; Count.u64 = 3798; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheHits : Accumulator : Sum.u64 = 1331; SumSQ.u64 = 1331; Count.u64 = 1331; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheMisses : Accumulator : Sum.u64 = 3783; SumSQ.u64 = 3783; Count.u64 = 3783; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheHits : Accumulator : Sum.u64 = 1363; SumSQ.u64 = 1363; Count.u64 = 1363; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheMisses : Accumulator : Sum.u64 = 3790; SumSQ.u64 = 3790; Count.u64 = 3790; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheHits : Accumulator : Sum.u64 = 1350; SumSQ.u64 = 1350; Count.u64 = 1350; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheMisses : Accumulator : Sum.u64 = 3778; SumSQ.u64 = 3778; Count.u64 = 3778; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheHits : Accumulator : Sum.u64 = 1311; SumSQ.u64 = 1311; Count.u64 = 1311; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheMisses : Accumulator : Sum.u64 = 3771; SumSQ.u64 = 3771; Count.u64 = 3771; Min.u64 = 1; Max.u64 = 1; 
+Simulation is complete, simulated time: 105.198 us
+
+-------------------------------
+
+--- /home/msi/scratch/src/sst-elements-library-14.0.0/src/sst/elements/memHierarchy/tests/gups_nbprefetch.log ---
+ l1cache0.CacheHits : Accumulator : Sum.u64 = 1610; SumSQ.u64 = 1610; Count.u64 = 1610; Min.u64 = 1; Max.u64 = 1; 
+ l1cache0.CacheMisses : Accumulator : Sum.u64 = 20291; SumSQ.u64 = 20291; Count.u64 = 20291; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheHits : Accumulator : Sum.u64 = 606; SumSQ.u64 = 606; Count.u64 = 606; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheMisses : Accumulator : Sum.u64 = 20297; SumSQ.u64 = 20297; Count.u64 = 20297; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheHits : Accumulator : Sum.u64 = 1737; SumSQ.u64 = 1737; Count.u64 = 1737; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheMisses : Accumulator : Sum.u64 = 20496; SumSQ.u64 = 20496; Count.u64 = 20496; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheHits : Accumulator : Sum.u64 = 991; SumSQ.u64 = 991; Count.u64 = 991; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheMisses : Accumulator : Sum.u64 = 20468; SumSQ.u64 = 20468; Count.u64 = 20468; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheHits : Accumulator : Sum.u64 = 6642; SumSQ.u64 = 6642; Count.u64 = 6642; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheMisses : Accumulator : Sum.u64 = 15025; SumSQ.u64 = 15025; Count.u64 = 15025; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheHits : Accumulator : Sum.u64 = 763; SumSQ.u64 = 763; Count.u64 = 763; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheMisses : Accumulator : Sum.u64 = 14778; SumSQ.u64 = 14778; Count.u64 = 14778; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheHits : Accumulator : Sum.u64 = 1565; SumSQ.u64 = 1565; Count.u64 = 1565; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheMisses : Accumulator : Sum.u64 = 20281; SumSQ.u64 = 20281; Count.u64 = 20281; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheHits : Accumulator : Sum.u64 = 537; SumSQ.u64 = 537; Count.u64 = 537; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheMisses : Accumulator : Sum.u64 = 20283; SumSQ.u64 = 20283; Count.u64 = 20283; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheHits : Accumulator : Sum.u64 = 17435; SumSQ.u64 = 17435; Count.u64 = 17435; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheMisses : Accumulator : Sum.u64 = 3513; SumSQ.u64 = 3513; Count.u64 = 3513; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheHits : Accumulator : Sum.u64 = 17254; SumSQ.u64 = 17254; Count.u64 = 17254; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheMisses : Accumulator : Sum.u64 = 3530; SumSQ.u64 = 3530; Count.u64 = 3530; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheHits : Accumulator : Sum.u64 = 17459; SumSQ.u64 = 17459; Count.u64 = 17459; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheMisses : Accumulator : Sum.u64 = 3530; SumSQ.u64 = 3530; Count.u64 = 3530; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheHits : Accumulator : Sum.u64 = 17226; SumSQ.u64 = 17226; Count.u64 = 17226; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheMisses : Accumulator : Sum.u64 = 3557; SumSQ.u64 = 3557; Count.u64 = 3557; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheHits : Accumulator : Sum.u64 = 1247; SumSQ.u64 = 1247; Count.u64 = 1247; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheMisses : Accumulator : Sum.u64 = 3919; SumSQ.u64 = 3919; Count.u64 = 3919; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheHits : Accumulator : Sum.u64 = 1207; SumSQ.u64 = 1207; Count.u64 = 1207; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheMisses : Accumulator : Sum.u64 = 3934; SumSQ.u64 = 3934; Count.u64 = 3934; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheHits : Accumulator : Sum.u64 = 1197; SumSQ.u64 = 1197; Count.u64 = 1197; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheMisses : Accumulator : Sum.u64 = 3973; SumSQ.u64 = 3973; Count.u64 = 3973; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheHits : Accumulator : Sum.u64 = 1205; SumSQ.u64 = 1205; Count.u64 = 1205; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheMisses : Accumulator : Sum.u64 = 3923; SumSQ.u64 = 3923; Count.u64 = 3923; Min.u64 = 1; Max.u64 = 1; 
+Simulation is complete, simulated time: 145.022 us
+
+-------------------------------
+
+--- /home/msi/scratch/src/sst-elements-library-14.0.0/src/sst/elements/memHierarchy/tests/stencil_strideprefetch.log ---
+ l1cache0.CacheHits : Accumulator : Sum.u64 = 161947; SumSQ.u64 = 161947; Count.u64 = 161947; Min.u64 = 1; Max.u64 = 1; 
+ l1cache0.CacheMisses : Accumulator : Sum.u64 = 2685; SumSQ.u64 = 2685; Count.u64 = 2685; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheHits : Accumulator : Sum.u64 = 186; SumSQ.u64 = 186; Count.u64 = 186; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheMisses : Accumulator : Sum.u64 = 2691; SumSQ.u64 = 2691; Count.u64 = 2691; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheHits : Accumulator : Sum.u64 = 161943; SumSQ.u64 = 161943; Count.u64 = 161943; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheMisses : Accumulator : Sum.u64 = 2650; SumSQ.u64 = 2650; Count.u64 = 2650; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheHits : Accumulator : Sum.u64 = 172; SumSQ.u64 = 172; Count.u64 = 172; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheMisses : Accumulator : Sum.u64 = 2660; SumSQ.u64 = 2660; Count.u64 = 2660; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheHits : Accumulator : Sum.u64 = 161956; SumSQ.u64 = 161956; Count.u64 = 161956; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheMisses : Accumulator : Sum.u64 = 2613; SumSQ.u64 = 2613; Count.u64 = 2613; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheHits : Accumulator : Sum.u64 = 278; SumSQ.u64 = 278; Count.u64 = 278; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheMisses : Accumulator : Sum.u64 = 2654; SumSQ.u64 = 2654; Count.u64 = 2654; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheHits : Accumulator : Sum.u64 = 161948; SumSQ.u64 = 161948; Count.u64 = 161948; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheMisses : Accumulator : Sum.u64 = 2598; SumSQ.u64 = 2598; Count.u64 = 2598; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheHits : Accumulator : Sum.u64 = 293; SumSQ.u64 = 293; Count.u64 = 293; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheMisses : Accumulator : Sum.u64 = 2625; SumSQ.u64 = 2625; Count.u64 = 2625; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheHits : Accumulator : Sum.u64 = 1917; SumSQ.u64 = 1917; Count.u64 = 1917; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheMisses : Accumulator : Sum.u64 = 1043; SumSQ.u64 = 1043; Count.u64 = 1043; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheHits : Accumulator : Sum.u64 = 1878; SumSQ.u64 = 1878; Count.u64 = 1878; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheMisses : Accumulator : Sum.u64 = 1064; SumSQ.u64 = 1064; Count.u64 = 1064; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheHits : Accumulator : Sum.u64 = 1864; SumSQ.u64 = 1864; Count.u64 = 1864; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheMisses : Accumulator : Sum.u64 = 1063; SumSQ.u64 = 1063; Count.u64 = 1063; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheHits : Accumulator : Sum.u64 = 1864; SumSQ.u64 = 1864; Count.u64 = 1864; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheMisses : Accumulator : Sum.u64 = 1044; SumSQ.u64 = 1044; Count.u64 = 1044; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheHits : Accumulator : Sum.u64 = 350; SumSQ.u64 = 350; Count.u64 = 350; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheMisses : Accumulator : Sum.u64 = 1024; SumSQ.u64 = 1024; Count.u64 = 1024; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheHits : Accumulator : Sum.u64 = 369; SumSQ.u64 = 369; Count.u64 = 369; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheMisses : Accumulator : Sum.u64 = 1033; SumSQ.u64 = 1033; Count.u64 = 1033; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheHits : Accumulator : Sum.u64 = 380; SumSQ.u64 = 380; Count.u64 = 380; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheMisses : Accumulator : Sum.u64 = 1010; SumSQ.u64 = 1010; Count.u64 = 1010; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheHits : Accumulator : Sum.u64 = 380; SumSQ.u64 = 380; Count.u64 = 380; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheMisses : Accumulator : Sum.u64 = 1048; SumSQ.u64 = 1048; Count.u64 = 1048; Min.u64 = 1; Max.u64 = 1; 
+Simulation is complete, simulated time: 56.27 us
+
+-------------------------------
+
+--- /home/msi/scratch/src/sst-elements-library-14.0.0/src/sst/elements/memHierarchy/tests/stream_sesprefetch.log ---
+ l1cache0.CacheHits : Accumulator : Sum.u64 = 23739; SumSQ.u64 = 23739; Count.u64 = 23739; Min.u64 = 1; Max.u64 = 1; 
+ l1cache0.CacheMisses : Accumulator : Sum.u64 = 8226; SumSQ.u64 = 8226; Count.u64 = 8226; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheHits : Accumulator : Sum.u64 = 104; SumSQ.u64 = 104; Count.u64 = 104; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheMisses : Accumulator : Sum.u64 = 8237; SumSQ.u64 = 8237; Count.u64 = 8237; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheHits : Accumulator : Sum.u64 = 23785; SumSQ.u64 = 23785; Count.u64 = 23785; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheMisses : Accumulator : Sum.u64 = 8183; SumSQ.u64 = 8183; Count.u64 = 8183; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheHits : Accumulator : Sum.u64 = 96; SumSQ.u64 = 96; Count.u64 = 96; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheMisses : Accumulator : Sum.u64 = 8202; SumSQ.u64 = 8202; Count.u64 = 8202; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheHits : Accumulator : Sum.u64 = 23756; SumSQ.u64 = 23756; Count.u64 = 23756; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheMisses : Accumulator : Sum.u64 = 8255; SumSQ.u64 = 8255; Count.u64 = 8255; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheHits : Accumulator : Sum.u64 = 118; SumSQ.u64 = 118; Count.u64 = 118; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheMisses : Accumulator : Sum.u64 = 8280; SumSQ.u64 = 8280; Count.u64 = 8280; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheHits : Accumulator : Sum.u64 = 23731; SumSQ.u64 = 23731; Count.u64 = 23731; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheMisses : Accumulator : Sum.u64 = 8246; SumSQ.u64 = 8246; Count.u64 = 8246; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheHits : Accumulator : Sum.u64 = 89; SumSQ.u64 = 89; Count.u64 = 89; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheMisses : Accumulator : Sum.u64 = 8259; SumSQ.u64 = 8259; Count.u64 = 8259; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheHits : Accumulator : Sum.u64 = 6411; SumSQ.u64 = 6411; Count.u64 = 6411; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheMisses : Accumulator : Sum.u64 = 3080; SumSQ.u64 = 3080; Count.u64 = 3080; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheHits : Accumulator : Sum.u64 = 6460; SumSQ.u64 = 6460; Count.u64 = 6460; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheMisses : Accumulator : Sum.u64 = 3049; SumSQ.u64 = 3049; Count.u64 = 3049; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheHits : Accumulator : Sum.u64 = 6480; SumSQ.u64 = 6480; Count.u64 = 6480; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheMisses : Accumulator : Sum.u64 = 3075; SumSQ.u64 = 3075; Count.u64 = 3075; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheHits : Accumulator : Sum.u64 = 6429; SumSQ.u64 = 6429; Count.u64 = 6429; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheMisses : Accumulator : Sum.u64 = 3043; SumSQ.u64 = 3043; Count.u64 = 3043; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheHits : Accumulator : Sum.u64 = 830; SumSQ.u64 = 830; Count.u64 = 830; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheMisses : Accumulator : Sum.u64 = 3588; SumSQ.u64 = 3588; Count.u64 = 3588; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheHits : Accumulator : Sum.u64 = 831; SumSQ.u64 = 831; Count.u64 = 831; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheMisses : Accumulator : Sum.u64 = 3542; SumSQ.u64 = 3542; Count.u64 = 3542; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheHits : Accumulator : Sum.u64 = 832; SumSQ.u64 = 832; Count.u64 = 832; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheMisses : Accumulator : Sum.u64 = 3608; SumSQ.u64 = 3608; Count.u64 = 3608; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheHits : Accumulator : Sum.u64 = 796; SumSQ.u64 = 796; Count.u64 = 796; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheMisses : Accumulator : Sum.u64 = 3590; SumSQ.u64 = 3590; Count.u64 = 3590; Min.u64 = 1; Max.u64 = 1; 
+Simulation is complete, simulated time: 105.503 us
+
+-------------------------------
+
+--- /home/msi/scratch/src/sst-elements-library-14.0.0/src/sst/elements/memHierarchy/tests/stream_strideprefetch.log ---
+ l1cache0.CacheHits : Accumulator : Sum.u64 = 23773; SumSQ.u64 = 23773; Count.u64 = 23773; Min.u64 = 1; Max.u64 = 1; 
+ l1cache0.CacheMisses : Accumulator : Sum.u64 = 8186; SumSQ.u64 = 8186; Count.u64 = 8186; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheHits : Accumulator : Sum.u64 = 115; SumSQ.u64 = 115; Count.u64 = 115; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheMisses : Accumulator : Sum.u64 = 8203; SumSQ.u64 = 8203; Count.u64 = 8203; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheHits : Accumulator : Sum.u64 = 23771; SumSQ.u64 = 23771; Count.u64 = 23771; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheMisses : Accumulator : Sum.u64 = 8286; SumSQ.u64 = 8286; Count.u64 = 8286; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheHits : Accumulator : Sum.u64 = 149; SumSQ.u64 = 149; Count.u64 = 149; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheMisses : Accumulator : Sum.u64 = 8319; SumSQ.u64 = 8319; Count.u64 = 8319; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheHits : Accumulator : Sum.u64 = 23741; SumSQ.u64 = 23741; Count.u64 = 23741; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheMisses : Accumulator : Sum.u64 = 8272; SumSQ.u64 = 8272; Count.u64 = 8272; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheHits : Accumulator : Sum.u64 = 136; SumSQ.u64 = 136; Count.u64 = 136; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheMisses : Accumulator : Sum.u64 = 8298; SumSQ.u64 = 8298; Count.u64 = 8298; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheHits : Accumulator : Sum.u64 = 23775; SumSQ.u64 = 23775; Count.u64 = 23775; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheMisses : Accumulator : Sum.u64 = 8256; SumSQ.u64 = 8256; Count.u64 = 8256; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheHits : Accumulator : Sum.u64 = 126; SumSQ.u64 = 126; Count.u64 = 126; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheMisses : Accumulator : Sum.u64 = 8287; SumSQ.u64 = 8287; Count.u64 = 8287; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheHits : Accumulator : Sum.u64 = 5786; SumSQ.u64 = 5786; Count.u64 = 5786; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheMisses : Accumulator : Sum.u64 = 3456; SumSQ.u64 = 3456; Count.u64 = 3456; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheHits : Accumulator : Sum.u64 = 5764; SumSQ.u64 = 5764; Count.u64 = 5764; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheMisses : Accumulator : Sum.u64 = 3488; SumSQ.u64 = 3488; Count.u64 = 3488; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheHits : Accumulator : Sum.u64 = 5800; SumSQ.u64 = 5800; Count.u64 = 5800; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheMisses : Accumulator : Sum.u64 = 3465; SumSQ.u64 = 3465; Count.u64 = 3465; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheHits : Accumulator : Sum.u64 = 5752; SumSQ.u64 = 5752; Count.u64 = 5752; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheMisses : Accumulator : Sum.u64 = 3411; SumSQ.u64 = 3411; Count.u64 = 3411; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheHits : Accumulator : Sum.u64 = 986; SumSQ.u64 = 986; Count.u64 = 986; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheMisses : Accumulator : Sum.u64 = 3965; SumSQ.u64 = 3965; Count.u64 = 3965; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheHits : Accumulator : Sum.u64 = 1033; SumSQ.u64 = 1033; Count.u64 = 1033; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheMisses : Accumulator : Sum.u64 = 3967; SumSQ.u64 = 3967; Count.u64 = 3967; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheHits : Accumulator : Sum.u64 = 1034; SumSQ.u64 = 1034; Count.u64 = 1034; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheMisses : Accumulator : Sum.u64 = 3979; SumSQ.u64 = 3979; Count.u64 = 3979; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheHits : Accumulator : Sum.u64 = 1035; SumSQ.u64 = 1035; Count.u64 = 1035; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheMisses : Accumulator : Sum.u64 = 3961; SumSQ.u64 = 3961; Count.u64 = 3961; Min.u64 = 1; Max.u64 = 1; 
+Simulation is complete, simulated time: 104.184 us
+
+-------------------------------
+
+--- /home/msi/scratch/src/sst-elements-library-14.0.0/src/sst/elements/memHierarchy/tests/spmv_paraprefetch.log ---
+ l1cache0.CacheHits : Accumulator : Sum.u64 = 117313; SumSQ.u64 = 117313; Count.u64 = 117313; Min.u64 = 1; Max.u64 = 1; 
+ l1cache0.CacheMisses : Accumulator : Sum.u64 = 7934; SumSQ.u64 = 7934; Count.u64 = 7934; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheHits : Accumulator : Sum.u64 = 1576; SumSQ.u64 = 1576; Count.u64 = 1576; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheMisses : Accumulator : Sum.u64 = 7914; SumSQ.u64 = 7914; Count.u64 = 7914; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheHits : Accumulator : Sum.u64 = 117172; SumSQ.u64 = 117172; Count.u64 = 117172; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheMisses : Accumulator : Sum.u64 = 8026; SumSQ.u64 = 8026; Count.u64 = 8026; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheHits : Accumulator : Sum.u64 = 1195; SumSQ.u64 = 1195; Count.u64 = 1195; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheMisses : Accumulator : Sum.u64 = 8022; SumSQ.u64 = 8022; Count.u64 = 8022; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheHits : Accumulator : Sum.u64 = 117413; SumSQ.u64 = 117413; Count.u64 = 117413; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheMisses : Accumulator : Sum.u64 = 7792; SumSQ.u64 = 7792; Count.u64 = 7792; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheHits : Accumulator : Sum.u64 = 1455; SumSQ.u64 = 1455; Count.u64 = 1455; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheMisses : Accumulator : Sum.u64 = 7719; SumSQ.u64 = 7719; Count.u64 = 7719; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheHits : Accumulator : Sum.u64 = 117259; SumSQ.u64 = 117259; Count.u64 = 117259; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheMisses : Accumulator : Sum.u64 = 7907; SumSQ.u64 = 7907; Count.u64 = 7907; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheHits : Accumulator : Sum.u64 = 1190; SumSQ.u64 = 1190; Count.u64 = 1190; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheMisses : Accumulator : Sum.u64 = 7918; SumSQ.u64 = 7918; Count.u64 = 7918; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheHits : Accumulator : Sum.u64 = 7420; SumSQ.u64 = 7420; Count.u64 = 7420; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheMisses : Accumulator : Sum.u64 = 1074; SumSQ.u64 = 1074; Count.u64 = 1074; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheHits : Accumulator : Sum.u64 = 7447; SumSQ.u64 = 7447; Count.u64 = 7447; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheMisses : Accumulator : Sum.u64 = 1082; SumSQ.u64 = 1082; Count.u64 = 1082; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheHits : Accumulator : Sum.u64 = 7295; SumSQ.u64 = 7295; Count.u64 = 7295; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheMisses : Accumulator : Sum.u64 = 1072; SumSQ.u64 = 1072; Count.u64 = 1072; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheHits : Accumulator : Sum.u64 = 7401; SumSQ.u64 = 7401; Count.u64 = 7401; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheMisses : Accumulator : Sum.u64 = 1077; SumSQ.u64 = 1077; Count.u64 = 1077; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheHits : Accumulator : Sum.u64 = 34; SumSQ.u64 = 34; Count.u64 = 34; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheMisses : Accumulator : Sum.u64 = 1406; SumSQ.u64 = 1406; Count.u64 = 1406; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheHits : Accumulator : Sum.u64 = 18; SumSQ.u64 = 18; Count.u64 = 18; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheMisses : Accumulator : Sum.u64 = 1390; SumSQ.u64 = 1390; Count.u64 = 1390; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheHits : Accumulator : Sum.u64 = 25; SumSQ.u64 = 25; Count.u64 = 25; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheMisses : Accumulator : Sum.u64 = 1413; SumSQ.u64 = 1413; Count.u64 = 1413; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheHits : Accumulator : Sum.u64 = 26; SumSQ.u64 = 26; Count.u64 = 26; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheMisses : Accumulator : Sum.u64 = 1396; SumSQ.u64 = 1396; Count.u64 = 1396; Min.u64 = 1; Max.u64 = 1; 
+Simulation is complete, simulated time: 152.284 us
+
+-------------------------------
+
+--- /home/msi/scratch/src/sst-elements-library-14.0.0/src/sst/elements/memHierarchy/tests/spmv_nbprefetch.log ---
+ l1cache0.CacheHits : Accumulator : Sum.u64 = 117186; SumSQ.u64 = 117186; Count.u64 = 117186; Min.u64 = 1; Max.u64 = 1; 
+ l1cache0.CacheMisses : Accumulator : Sum.u64 = 8162; SumSQ.u64 = 8162; Count.u64 = 8162; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheHits : Accumulator : Sum.u64 = 1146; SumSQ.u64 = 1146; Count.u64 = 1146; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheMisses : Accumulator : Sum.u64 = 8086; SumSQ.u64 = 8086; Count.u64 = 8086; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheHits : Accumulator : Sum.u64 = 117549; SumSQ.u64 = 117549; Count.u64 = 117549; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheMisses : Accumulator : Sum.u64 = 7653; SumSQ.u64 = 7653; Count.u64 = 7653; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheHits : Accumulator : Sum.u64 = 1812; SumSQ.u64 = 1812; Count.u64 = 1812; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheMisses : Accumulator : Sum.u64 = 7658; SumSQ.u64 = 7658; Count.u64 = 7658; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheHits : Accumulator : Sum.u64 = 117129; SumSQ.u64 = 117129; Count.u64 = 117129; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheMisses : Accumulator : Sum.u64 = 8346; SumSQ.u64 = 8346; Count.u64 = 8346; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheHits : Accumulator : Sum.u64 = 1192; SumSQ.u64 = 1192; Count.u64 = 1192; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheMisses : Accumulator : Sum.u64 = 8300; SumSQ.u64 = 8300; Count.u64 = 8300; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheHits : Accumulator : Sum.u64 = 117604; SumSQ.u64 = 117604; Count.u64 = 117604; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheMisses : Accumulator : Sum.u64 = 7657; SumSQ.u64 = 7657; Count.u64 = 7657; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheHits : Accumulator : Sum.u64 = 1833; SumSQ.u64 = 1833; Count.u64 = 1833; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheMisses : Accumulator : Sum.u64 = 7636; SumSQ.u64 = 7636; Count.u64 = 7636; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheHits : Accumulator : Sum.u64 = 6880; SumSQ.u64 = 6880; Count.u64 = 6880; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheMisses : Accumulator : Sum.u64 = 1691; SumSQ.u64 = 1691; Count.u64 = 1691; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheHits : Accumulator : Sum.u64 = 6690; SumSQ.u64 = 6690; Count.u64 = 6690; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheMisses : Accumulator : Sum.u64 = 1694; SumSQ.u64 = 1694; Count.u64 = 1694; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheHits : Accumulator : Sum.u64 = 6865; SumSQ.u64 = 6865; Count.u64 = 6865; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheMisses : Accumulator : Sum.u64 = 1695; SumSQ.u64 = 1695; Count.u64 = 1695; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheHits : Accumulator : Sum.u64 = 6714; SumSQ.u64 = 6714; Count.u64 = 6714; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheMisses : Accumulator : Sum.u64 = 1694; SumSQ.u64 = 1694; Count.u64 = 1694; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheHits : Accumulator : Sum.u64 = 625; SumSQ.u64 = 625; Count.u64 = 625; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheMisses : Accumulator : Sum.u64 = 1690; SumSQ.u64 = 1690; Count.u64 = 1690; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheHits : Accumulator : Sum.u64 = 494; SumSQ.u64 = 494; Count.u64 = 494; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheMisses : Accumulator : Sum.u64 = 1694; SumSQ.u64 = 1694; Count.u64 = 1694; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheHits : Accumulator : Sum.u64 = 622; SumSQ.u64 = 622; Count.u64 = 622; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheMisses : Accumulator : Sum.u64 = 1695; SumSQ.u64 = 1695; Count.u64 = 1695; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheHits : Accumulator : Sum.u64 = 499; SumSQ.u64 = 499; Count.u64 = 499; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheMisses : Accumulator : Sum.u64 = 1693; SumSQ.u64 = 1693; Count.u64 = 1693; Min.u64 = 1; Max.u64 = 1; 
+Simulation is complete, simulated time: 166.734 us
+
+-------------------------------
+
+--- /home/msi/scratch/src/sst-elements-library-14.0.0/src/sst/elements/memHierarchy/tests/stream_paraprefetch.log ---
+ l1cache0.CacheHits : Accumulator : Sum.u64 = 23846; SumSQ.u64 = 23846; Count.u64 = 23846; Min.u64 = 1; Max.u64 = 1; 
+ l1cache0.CacheMisses : Accumulator : Sum.u64 = 8151; SumSQ.u64 = 8151; Count.u64 = 8151; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheHits : Accumulator : Sum.u64 = 104; SumSQ.u64 = 104; Count.u64 = 104; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheMisses : Accumulator : Sum.u64 = 8165; SumSQ.u64 = 8165; Count.u64 = 8165; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheHits : Accumulator : Sum.u64 = 23823; SumSQ.u64 = 23823; Count.u64 = 23823; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheMisses : Accumulator : Sum.u64 = 8204; SumSQ.u64 = 8204; Count.u64 = 8204; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheHits : Accumulator : Sum.u64 = 101; SumSQ.u64 = 101; Count.u64 = 101; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheMisses : Accumulator : Sum.u64 = 8220; SumSQ.u64 = 8220; Count.u64 = 8220; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheHits : Accumulator : Sum.u64 = 23793; SumSQ.u64 = 23793; Count.u64 = 23793; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheMisses : Accumulator : Sum.u64 = 8196; SumSQ.u64 = 8196; Count.u64 = 8196; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheHits : Accumulator : Sum.u64 = 111; SumSQ.u64 = 111; Count.u64 = 111; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheMisses : Accumulator : Sum.u64 = 8218; SumSQ.u64 = 8218; Count.u64 = 8218; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheHits : Accumulator : Sum.u64 = 23798; SumSQ.u64 = 23798; Count.u64 = 23798; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheMisses : Accumulator : Sum.u64 = 8209; SumSQ.u64 = 8209; Count.u64 = 8209; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheHits : Accumulator : Sum.u64 = 114; SumSQ.u64 = 114; Count.u64 = 114; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheMisses : Accumulator : Sum.u64 = 8231; SumSQ.u64 = 8231; Count.u64 = 8231; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheHits : Accumulator : Sum.u64 = 6899; SumSQ.u64 = 6899; Count.u64 = 6899; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheMisses : Accumulator : Sum.u64 = 2374; SumSQ.u64 = 2374; Count.u64 = 2374; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheHits : Accumulator : Sum.u64 = 6828; SumSQ.u64 = 6828; Count.u64 = 6828; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheMisses : Accumulator : Sum.u64 = 2352; SumSQ.u64 = 2352; Count.u64 = 2352; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheHits : Accumulator : Sum.u64 = 6827; SumSQ.u64 = 6827; Count.u64 = 6827; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheMisses : Accumulator : Sum.u64 = 2351; SumSQ.u64 = 2351; Count.u64 = 2351; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheHits : Accumulator : Sum.u64 = 6832; SumSQ.u64 = 6832; Count.u64 = 6832; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheMisses : Accumulator : Sum.u64 = 2340; SumSQ.u64 = 2340; Count.u64 = 2340; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheHits : Accumulator : Sum.u64 = 32; SumSQ.u64 = 32; Count.u64 = 32; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheMisses : Accumulator : Sum.u64 = 3883; SumSQ.u64 = 3883; Count.u64 = 3883; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheHits : Accumulator : Sum.u64 = 37; SumSQ.u64 = 37; Count.u64 = 37; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheMisses : Accumulator : Sum.u64 = 3845; SumSQ.u64 = 3845; Count.u64 = 3845; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheHits : Accumulator : Sum.u64 = 31; SumSQ.u64 = 31; Count.u64 = 31; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheMisses : Accumulator : Sum.u64 = 3846; SumSQ.u64 = 3846; Count.u64 = 3846; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheHits : Accumulator : Sum.u64 = 28; SumSQ.u64 = 28; Count.u64 = 28; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheMisses : Accumulator : Sum.u64 = 3852; SumSQ.u64 = 3852; Count.u64 = 3852; Min.u64 = 1; Max.u64 = 1; 
+Simulation is complete, simulated time: 102.297 us
+
+-------------------------------
+
+--- /home/msi/scratch/src/sst-elements-library-14.0.0/src/sst/elements/memHierarchy/tests/stencil_nbprefetch.log ---
+ l1cache0.CacheHits : Accumulator : Sum.u64 = 161949; SumSQ.u64 = 161949; Count.u64 = 161949; Min.u64 = 1; Max.u64 = 1; 
+ l1cache0.CacheMisses : Accumulator : Sum.u64 = 2668; SumSQ.u64 = 2668; Count.u64 = 2668; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheHits : Accumulator : Sum.u64 = 193; SumSQ.u64 = 193; Count.u64 = 193; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheMisses : Accumulator : Sum.u64 = 2678; SumSQ.u64 = 2678; Count.u64 = 2678; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheHits : Accumulator : Sum.u64 = 161961; SumSQ.u64 = 161961; Count.u64 = 161961; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheMisses : Accumulator : Sum.u64 = 2672; SumSQ.u64 = 2672; Count.u64 = 2672; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheHits : Accumulator : Sum.u64 = 194; SumSQ.u64 = 194; Count.u64 = 194; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheMisses : Accumulator : Sum.u64 = 2680; SumSQ.u64 = 2680; Count.u64 = 2680; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheHits : Accumulator : Sum.u64 = 161950; SumSQ.u64 = 161950; Count.u64 = 161950; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheMisses : Accumulator : Sum.u64 = 2639; SumSQ.u64 = 2639; Count.u64 = 2639; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheHits : Accumulator : Sum.u64 = 252; SumSQ.u64 = 252; Count.u64 = 252; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheMisses : Accumulator : Sum.u64 = 2661; SumSQ.u64 = 2661; Count.u64 = 2661; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheHits : Accumulator : Sum.u64 = 161947; SumSQ.u64 = 161947; Count.u64 = 161947; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheMisses : Accumulator : Sum.u64 = 2633; SumSQ.u64 = 2633; Count.u64 = 2633; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheHits : Accumulator : Sum.u64 = 254; SumSQ.u64 = 254; Count.u64 = 254; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheMisses : Accumulator : Sum.u64 = 2652; SumSQ.u64 = 2652; Count.u64 = 2652; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheHits : Accumulator : Sum.u64 = 1912; SumSQ.u64 = 1912; Count.u64 = 1912; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheMisses : Accumulator : Sum.u64 = 1231; SumSQ.u64 = 1231; Count.u64 = 1231; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheHits : Accumulator : Sum.u64 = 1916; SumSQ.u64 = 1916; Count.u64 = 1916; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheMisses : Accumulator : Sum.u64 = 1222; SumSQ.u64 = 1222; Count.u64 = 1222; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheHits : Accumulator : Sum.u64 = 1885; SumSQ.u64 = 1885; Count.u64 = 1885; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheMisses : Accumulator : Sum.u64 = 1222; SumSQ.u64 = 1222; Count.u64 = 1222; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheHits : Accumulator : Sum.u64 = 1903; SumSQ.u64 = 1903; Count.u64 = 1903; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheMisses : Accumulator : Sum.u64 = 1229; SumSQ.u64 = 1229; Count.u64 = 1229; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheHits : Accumulator : Sum.u64 = 445; SumSQ.u64 = 445; Count.u64 = 445; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheMisses : Accumulator : Sum.u64 = 1231; SumSQ.u64 = 1231; Count.u64 = 1231; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheHits : Accumulator : Sum.u64 = 453; SumSQ.u64 = 453; Count.u64 = 453; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheMisses : Accumulator : Sum.u64 = 1222; SumSQ.u64 = 1222; Count.u64 = 1222; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheHits : Accumulator : Sum.u64 = 435; SumSQ.u64 = 435; Count.u64 = 435; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheMisses : Accumulator : Sum.u64 = 1223; SumSQ.u64 = 1223; Count.u64 = 1223; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheHits : Accumulator : Sum.u64 = 451; SumSQ.u64 = 451; Count.u64 = 451; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheMisses : Accumulator : Sum.u64 = 1232; SumSQ.u64 = 1232; Count.u64 = 1232; Min.u64 = 1; Max.u64 = 1; 
+Simulation is complete, simulated time: 52.8018 us
+
+-------------------------------
+
+--- /home/msi/scratch/src/sst-elements-library-14.0.0/src/sst/elements/memHierarchy/tests/gups_sesprefetch.log ---
+ l1cache0.CacheHits : Accumulator : Sum.u64 = 1974; SumSQ.u64 = 1974; Count.u64 = 1974; Min.u64 = 1; Max.u64 = 1; 
+ l1cache0.CacheMisses : Accumulator : Sum.u64 = 19994; SumSQ.u64 = 19994; Count.u64 = 19994; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheHits : Accumulator : Sum.u64 = 584; SumSQ.u64 = 584; Count.u64 = 584; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheMisses : Accumulator : Sum.u64 = 20012; SumSQ.u64 = 20012; Count.u64 = 20012; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheHits : Accumulator : Sum.u64 = 5250; SumSQ.u64 = 5250; Count.u64 = 5250; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheMisses : Accumulator : Sum.u64 = 16280; SumSQ.u64 = 16280; Count.u64 = 16280; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheHits : Accumulator : Sum.u64 = 731; SumSQ.u64 = 731; Count.u64 = 731; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheMisses : Accumulator : Sum.u64 = 16077; SumSQ.u64 = 16077; Count.u64 = 16077; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheHits : Accumulator : Sum.u64 = 1445; SumSQ.u64 = 1445; Count.u64 = 1445; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheMisses : Accumulator : Sum.u64 = 20750; SumSQ.u64 = 20750; Count.u64 = 20750; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheHits : Accumulator : Sum.u64 = 1062; SumSQ.u64 = 1062; Count.u64 = 1062; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheMisses : Accumulator : Sum.u64 = 20781; SumSQ.u64 = 20781; Count.u64 = 20781; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheHits : Accumulator : Sum.u64 = 1316; SumSQ.u64 = 1316; Count.u64 = 1316; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheMisses : Accumulator : Sum.u64 = 20587; SumSQ.u64 = 20587; Count.u64 = 20587; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheHits : Accumulator : Sum.u64 = 628; SumSQ.u64 = 628; Count.u64 = 628; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheMisses : Accumulator : Sum.u64 = 20581; SumSQ.u64 = 20581; Count.u64 = 20581; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheHits : Accumulator : Sum.u64 = 17958; SumSQ.u64 = 17958; Count.u64 = 17958; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheMisses : Accumulator : Sum.u64 = 3617; SumSQ.u64 = 3617; Count.u64 = 3617; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheHits : Accumulator : Sum.u64 = 17772; SumSQ.u64 = 17772; Count.u64 = 17772; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheMisses : Accumulator : Sum.u64 = 3598; SumSQ.u64 = 3598; Count.u64 = 3598; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheHits : Accumulator : Sum.u64 = 17975; SumSQ.u64 = 17975; Count.u64 = 17975; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheMisses : Accumulator : Sum.u64 = 3628; SumSQ.u64 = 3628; Count.u64 = 3628; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheHits : Accumulator : Sum.u64 = 17674; SumSQ.u64 = 17674; Count.u64 = 17674; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheMisses : Accumulator : Sum.u64 = 3609; SumSQ.u64 = 3609; Count.u64 = 3609; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheHits : Accumulator : Sum.u64 = 1432; SumSQ.u64 = 1432; Count.u64 = 1432; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheMisses : Accumulator : Sum.u64 = 3778; SumSQ.u64 = 3778; Count.u64 = 3778; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheHits : Accumulator : Sum.u64 = 1372; SumSQ.u64 = 1372; Count.u64 = 1372; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheMisses : Accumulator : Sum.u64 = 3776; SumSQ.u64 = 3776; Count.u64 = 3776; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheHits : Accumulator : Sum.u64 = 1434; SumSQ.u64 = 1434; Count.u64 = 1434; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheMisses : Accumulator : Sum.u64 = 3819; SumSQ.u64 = 3819; Count.u64 = 3819; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheHits : Accumulator : Sum.u64 = 1339; SumSQ.u64 = 1339; Count.u64 = 1339; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheMisses : Accumulator : Sum.u64 = 3759; SumSQ.u64 = 3759; Count.u64 = 3759; Min.u64 = 1; Max.u64 = 1; 
+Simulation is complete, simulated time: 165.288 us
+
+-------------------------------
+
+--- /home/msi/scratch/src/sst-elements-library-14.0.0/src/sst/elements/memHierarchy/tests/stencil_paraprefetch.log ---
+ l1cache0.CacheHits : Accumulator : Sum.u64 = 161916; SumSQ.u64 = 161916; Count.u64 = 161916; Min.u64 = 1; Max.u64 = 1; 
+ l1cache0.CacheMisses : Accumulator : Sum.u64 = 2753; SumSQ.u64 = 2753; Count.u64 = 2753; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheHits : Accumulator : Sum.u64 = 266; SumSQ.u64 = 266; Count.u64 = 266; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheMisses : Accumulator : Sum.u64 = 2751; SumSQ.u64 = 2751; Count.u64 = 2751; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheHits : Accumulator : Sum.u64 = 161924; SumSQ.u64 = 161924; Count.u64 = 161924; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheMisses : Accumulator : Sum.u64 = 2737; SumSQ.u64 = 2737; Count.u64 = 2737; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheHits : Accumulator : Sum.u64 = 199; SumSQ.u64 = 199; Count.u64 = 199; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheMisses : Accumulator : Sum.u64 = 2745; SumSQ.u64 = 2745; Count.u64 = 2745; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheHits : Accumulator : Sum.u64 = 161934; SumSQ.u64 = 161934; Count.u64 = 161934; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheMisses : Accumulator : Sum.u64 = 2716; SumSQ.u64 = 2716; Count.u64 = 2716; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheHits : Accumulator : Sum.u64 = 266; SumSQ.u64 = 266; Count.u64 = 266; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheMisses : Accumulator : Sum.u64 = 2704; SumSQ.u64 = 2704; Count.u64 = 2704; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheHits : Accumulator : Sum.u64 = 161928; SumSQ.u64 = 161928; Count.u64 = 161928; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheMisses : Accumulator : Sum.u64 = 2723; SumSQ.u64 = 2723; Count.u64 = 2723; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheHits : Accumulator : Sum.u64 = 201; SumSQ.u64 = 201; Count.u64 = 201; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheMisses : Accumulator : Sum.u64 = 2729; SumSQ.u64 = 2729; Count.u64 = 2729; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheHits : Accumulator : Sum.u64 = 2343; SumSQ.u64 = 2343; Count.u64 = 2343; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheMisses : Accumulator : Sum.u64 = 634; SumSQ.u64 = 634; Count.u64 = 634; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheHits : Accumulator : Sum.u64 = 2347; SumSQ.u64 = 2347; Count.u64 = 2347; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheMisses : Accumulator : Sum.u64 = 632; SumSQ.u64 = 632; Count.u64 = 632; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheHits : Accumulator : Sum.u64 = 2354; SumSQ.u64 = 2354; Count.u64 = 2354; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheMisses : Accumulator : Sum.u64 = 634; SumSQ.u64 = 634; Count.u64 = 634; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheHits : Accumulator : Sum.u64 = 2335; SumSQ.u64 = 2335; Count.u64 = 2335; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheMisses : Accumulator : Sum.u64 = 635; SumSQ.u64 = 635; Count.u64 = 635; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheHits : Accumulator : Sum.u64 = 2; SumSQ.u64 = 2; Count.u64 = 2; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheMisses : Accumulator : Sum.u64 = 877; SumSQ.u64 = 877; Count.u64 = 877; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheHits : Accumulator : Sum.u64 = 3; SumSQ.u64 = 3; Count.u64 = 3; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheMisses : Accumulator : Sum.u64 = 895; SumSQ.u64 = 895; Count.u64 = 895; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheHits : Accumulator : Sum.u64 = 5; SumSQ.u64 = 5; Count.u64 = 5; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheMisses : Accumulator : Sum.u64 = 884; SumSQ.u64 = 884; Count.u64 = 884; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheHits : Accumulator : Sum.u64 = 3; SumSQ.u64 = 3; Count.u64 = 3; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheMisses : Accumulator : Sum.u64 = 891; SumSQ.u64 = 891; Count.u64 = 891; Min.u64 = 1; Max.u64 = 1; 
+Simulation is complete, simulated time: 51.8369 us
+
+-------------------------------
+
+--- /home/msi/scratch/src/sst-elements-library-14.0.0/src/sst/elements/memHierarchy/tests/gups_strideprefetch.log ---
+ l1cache0.CacheHits : Accumulator : Sum.u64 = 1572; SumSQ.u64 = 1572; Count.u64 = 1572; Min.u64 = 1; Max.u64 = 1; 
+ l1cache0.CacheMisses : Accumulator : Sum.u64 = 20643; SumSQ.u64 = 20643; Count.u64 = 20643; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheHits : Accumulator : Sum.u64 = 1063; SumSQ.u64 = 1063; Count.u64 = 1063; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheMisses : Accumulator : Sum.u64 = 20667; SumSQ.u64 = 20667; Count.u64 = 20667; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheHits : Accumulator : Sum.u64 = 6366; SumSQ.u64 = 6366; Count.u64 = 6366; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheMisses : Accumulator : Sum.u64 = 15514; SumSQ.u64 = 15514; Count.u64 = 15514; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheHits : Accumulator : Sum.u64 = 795; SumSQ.u64 = 795; Count.u64 = 795; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheMisses : Accumulator : Sum.u64 = 15286; SumSQ.u64 = 15286; Count.u64 = 15286; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheHits : Accumulator : Sum.u64 = 1397; SumSQ.u64 = 1397; Count.u64 = 1397; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheMisses : Accumulator : Sum.u64 = 20383; SumSQ.u64 = 20383; Count.u64 = 20383; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheHits : Accumulator : Sum.u64 = 574; SumSQ.u64 = 574; Count.u64 = 574; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheMisses : Accumulator : Sum.u64 = 20383; SumSQ.u64 = 20383; Count.u64 = 20383; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheHits : Accumulator : Sum.u64 = 1447; SumSQ.u64 = 1447; Count.u64 = 1447; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheMisses : Accumulator : Sum.u64 = 20334; SumSQ.u64 = 20334; Count.u64 = 20334; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheHits : Accumulator : Sum.u64 = 599; SumSQ.u64 = 599; Count.u64 = 599; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheMisses : Accumulator : Sum.u64 = 20361; SumSQ.u64 = 20361; Count.u64 = 20361; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheHits : Accumulator : Sum.u64 = 19031; SumSQ.u64 = 19031; Count.u64 = 19031; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheMisses : Accumulator : Sum.u64 = 4134; SumSQ.u64 = 4134; Count.u64 = 4134; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheHits : Accumulator : Sum.u64 = 18955; SumSQ.u64 = 18955; Count.u64 = 18955; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheMisses : Accumulator : Sum.u64 = 4081; SumSQ.u64 = 4081; Count.u64 = 4081; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheHits : Accumulator : Sum.u64 = 18958; SumSQ.u64 = 18958; Count.u64 = 18958; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheMisses : Accumulator : Sum.u64 = 4083; SumSQ.u64 = 4083; Count.u64 = 4083; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheHits : Accumulator : Sum.u64 = 18851; SumSQ.u64 = 18851; Count.u64 = 18851; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheMisses : Accumulator : Sum.u64 = 4011; SumSQ.u64 = 4011; Count.u64 = 4011; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheHits : Accumulator : Sum.u64 = 1706; SumSQ.u64 = 1706; Count.u64 = 1706; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheMisses : Accumulator : Sum.u64 = 4010; SumSQ.u64 = 4010; Count.u64 = 4010; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheHits : Accumulator : Sum.u64 = 1828; SumSQ.u64 = 1828; Count.u64 = 1828; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheMisses : Accumulator : Sum.u64 = 4010; SumSQ.u64 = 4010; Count.u64 = 4010; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheHits : Accumulator : Sum.u64 = 1713; SumSQ.u64 = 1713; Count.u64 = 1713; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheMisses : Accumulator : Sum.u64 = 4022; SumSQ.u64 = 4022; Count.u64 = 4022; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheHits : Accumulator : Sum.u64 = 1727; SumSQ.u64 = 1727; Count.u64 = 1727; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheMisses : Accumulator : Sum.u64 = 4006; SumSQ.u64 = 4006; Count.u64 = 4006; Min.u64 = 1; Max.u64 = 1; 
+Simulation is complete, simulated time: 158.156 us
+
+-------------------------------
+
+--- /home/msi/scratch/src/sst-elements-library-14.0.0/src/sst/elements/memHierarchy/tests/gups_paraprefetch.log ---
+ l1cache0.CacheHits : Accumulator : Sum.u64 = 2928; SumSQ.u64 = 2928; Count.u64 = 2928; Min.u64 = 1; Max.u64 = 1; 
+ l1cache0.CacheMisses : Accumulator : Sum.u64 = 18889; SumSQ.u64 = 18889; Count.u64 = 18889; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheHits : Accumulator : Sum.u64 = 676; SumSQ.u64 = 676; Count.u64 = 676; Min.u64 = 1; Max.u64 = 1; 
+ l2cache0.CacheMisses : Accumulator : Sum.u64 = 18829; SumSQ.u64 = 18829; Count.u64 = 18829; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheHits : Accumulator : Sum.u64 = 3818; SumSQ.u64 = 3818; Count.u64 = 3818; Min.u64 = 1; Max.u64 = 1; 
+ l1cache1.CacheMisses : Accumulator : Sum.u64 = 17996; SumSQ.u64 = 17996; Count.u64 = 17996; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheHits : Accumulator : Sum.u64 = 664; SumSQ.u64 = 664; Count.u64 = 664; Min.u64 = 1; Max.u64 = 1; 
+ l2cache1.CacheMisses : Accumulator : Sum.u64 = 17923; SumSQ.u64 = 17923; Count.u64 = 17923; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheHits : Accumulator : Sum.u64 = 1396; SumSQ.u64 = 1396; Count.u64 = 1396; Min.u64 = 1; Max.u64 = 1; 
+ l1cache2.CacheMisses : Accumulator : Sum.u64 = 20732; SumSQ.u64 = 20732; Count.u64 = 20732; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheHits : Accumulator : Sum.u64 = 844; SumSQ.u64 = 844; Count.u64 = 844; Min.u64 = 1; Max.u64 = 1; 
+ l2cache2.CacheMisses : Accumulator : Sum.u64 = 20769; SumSQ.u64 = 20769; Count.u64 = 20769; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheHits : Accumulator : Sum.u64 = 1314; SumSQ.u64 = 1314; Count.u64 = 1314; Min.u64 = 1; Max.u64 = 1; 
+ l1cache3.CacheMisses : Accumulator : Sum.u64 = 20778; SumSQ.u64 = 20778; Count.u64 = 20778; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheHits : Accumulator : Sum.u64 = 931; SumSQ.u64 = 931; Count.u64 = 931; Min.u64 = 1; Max.u64 = 1; 
+ l2cache3.CacheMisses : Accumulator : Sum.u64 = 20786; SumSQ.u64 = 20786; Count.u64 = 20786; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheHits : Accumulator : Sum.u64 = 20446; SumSQ.u64 = 20446; Count.u64 = 20446; Min.u64 = 1; Max.u64 = 1; 
+ l3cache0.CacheMisses : Accumulator : Sum.u64 = 2424; SumSQ.u64 = 2424; Count.u64 = 2424; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheHits : Accumulator : Sum.u64 = 20345; SumSQ.u64 = 20345; Count.u64 = 20345; Min.u64 = 1; Max.u64 = 1; 
+ l3cache1.CacheMisses : Accumulator : Sum.u64 = 2459; SumSQ.u64 = 2459; Count.u64 = 2459; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheHits : Accumulator : Sum.u64 = 20390; SumSQ.u64 = 20390; Count.u64 = 20390; Min.u64 = 1; Max.u64 = 1; 
+ l3cache2.CacheMisses : Accumulator : Sum.u64 = 2439; SumSQ.u64 = 2439; Count.u64 = 2439; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheHits : Accumulator : Sum.u64 = 20246; SumSQ.u64 = 20246; Count.u64 = 20246; Min.u64 = 1; Max.u64 = 1; 
+ l3cache3.CacheMisses : Accumulator : Sum.u64 = 2444; SumSQ.u64 = 2444; Count.u64 = 2444; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheHits : Accumulator : Sum.u64 = 380; SumSQ.u64 = 380; Count.u64 = 380; Min.u64 = 1; Max.u64 = 1; 
+ l4cache0.CacheMisses : Accumulator : Sum.u64 = 3956; SumSQ.u64 = 3956; Count.u64 = 3956; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheHits : Accumulator : Sum.u64 = 427; SumSQ.u64 = 427; Count.u64 = 427; Min.u64 = 1; Max.u64 = 1; 
+ l4cache1.CacheMisses : Accumulator : Sum.u64 = 3946; SumSQ.u64 = 3946; Count.u64 = 3946; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheHits : Accumulator : Sum.u64 = 425; SumSQ.u64 = 425; Count.u64 = 425; Min.u64 = 1; Max.u64 = 1; 
+ l4cache2.CacheMisses : Accumulator : Sum.u64 = 3952; SumSQ.u64 = 3952; Count.u64 = 3952; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheHits : Accumulator : Sum.u64 = 432; SumSQ.u64 = 432; Count.u64 = 432; Min.u64 = 1; Max.u64 = 1; 
+ l4cache3.CacheMisses : Accumulator : Sum.u64 = 3929; SumSQ.u64 = 3929; Count.u64 = 3929; Min.u64 = 1; Max.u64 = 1; 
+Simulation is complete, simulated time: 184.675 us
+
+-------------------------------
+
