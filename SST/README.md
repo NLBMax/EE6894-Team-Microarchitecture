@@ -1,48 +1,71 @@
 # EE6894-Team-Microarchitecture
 This is a project that builds the Cloak design on SST.
 
-# **Building Rev (RISC CPU) in SST**
-The Rev SST component is designed to provide cycle-based simulation capabilities of an arbitrary RISC-V core or cores. Rev utilizes the Sandia Structural Simulation Toolkit as the core parallel discrete event simulation framework. More detailed design and description can be found in the following GitHub repository: [Rev](https://github.com/tactcomplabs/rev).
+# Installing Structural Simulation Toolkit (SST) 14.1.x
 
-This document describes how to install Rev on Linux. For more detailed instructions, refer to the GitHub repository linked above.
+This guide provides instructions for installing the Structural Simulation Toolkit (SST) version 14.1.x. It assumes you are familiar with Unix/Linux/OSX environments. For detailed information, refer to the [SST Build and Install Guide](https://sst-simulator.org/SSTPages/SSTBuildAndInstall_14dot1dot0_SeriesQuickStart/).
 
-## **1. Building RISC Compiler**
-As mentioned above, the Rev SST model supports standard ELF binary payloads as input to the model. As a result, we need a cross-compilation framework to build source code into suitable binaries. We recommend using [riscv-gnu-toolchain](https://github.com/riscv/riscv-gnu-toolchain) as the compiler.
+## Prerequisites
 
-### **Installing riscv-gnu-toolchain**
-Several standard packages are needed to build the toolchain.
-```bash
-$ sudo apt-get install autoconf automake autotools-dev curl python3 python3-pip libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev libexpat-dev ninja-build git cmake libglib2.0-dev libslirp-dev
-```
+Before installing SST, ensure the following external components are installed on your system:
+- **OpenMPI**: Recommended for parallel simulations.
+The installation of **OpenMPI** can be found in following website: [install OpenMPI](https://sst-simulator.org/SSTPages/SSTBuildAndInstall_14dot1dot0_SeriesDetailedBuildInstructions/#openmpi-414-strongly-recommended).
 
-Here is a brief description of how to install the RISC-V GNU toolchain. For more details, refer to the GitHub repository above.
-```bash
-git clone https://github.com/riscv/riscv-gnu-toolchain
-cd riscv-gnu-toolchain
-git submodule update --init --recursive
-./configure --prefix=/opt/riscv --enable-multilib
-make linux
-```
+These dependencies may be available through your operating system's package manager. Ensure that the installed versions are compatible with SST 14.1.x, as specified in the [Release Notes](https://sst-simulator.org/sstannouncements/2024/10/17/SST-v14.1.0-Released/).
 
-## **2. Building RISC CPU**
-Building the Rev SST component from source using CMake (>= 3.19) can be performed as follows:
+## Installation Steps
 
-### **Steps**
-1. If you are using the compiler above, you can find the compiler in `/opt/riscv`.
-2. Clone the repository and build:
-   ```bash
-   git clone https://github.com/tactcomplabs/rev.git
-   cd rev/build
-   export RISCV=/opt/riscv
-   cmake -DRVCC=$RISCV/bin/riscv64-unknown-elf-gcc ..
-   ```
-3. **Important Note:**  
-   For the current version (as of 12/1/2024), if you are using SST version 14.0.0 or above, you need to make the following changes in the `src/RevNIC.cc` file:  
-   - Replace `sendInitData` with `sendUntimedData`.
-   - Replace `recvInitData` with `recvUntimedData`.
+### 1. Download SST-Core and SST-Elements
+- Obtain the SST-Core 14.1.x and SST-Elements 14.1.x tarballs from the [SST Downloads Page](https://sst-simulator.org/SSTPages/SSTMainDownloads/).
 
-4. Build and install:
-   ```bash
-   make
-   make install
+### 2. Extract the Tarballs
+- Create separate directories for SST-Core and SST-Elements, then extract the tarballs:
+  ```bash
+  mkdir -p $HOME/mysst/sst-core
+  mkdir -p $HOME/mysst/sst-elements
+  tar -xzf sstcore-14.1.x.tar.gz -C $HOME/mysst/sst-core --strip-components=1
+  tar -xzf sstelements-14.1.x.tar.gz -C $HOME/mysst/sst-elements --strip-components=1
+  ```
+
+### 3. Build and Install SST-Core
+- Navigate to the SST-Core directory:
+  ```bash
+  cd $HOME/mysst/sst-core
+  ```
+- Configure the build (replace `<install_path>` with your desired installation directory):
+  ```bash
+  ./configure --prefix=<install_path>
+  ```
+- Compile and install:
+  ```bash
+  make
+  make install
+  ```
+
+### 4. Build and Install SST-Elements
+- Navigate to the SST-Elements directory:
+  ```bash
+  cd $HOME/mysst/sst-elements
+  ```
+- Configure the build, linking it to the SST-Core installation:
+  ```bash
+  ./configure --prefix=<install_path> --with-sst-core=<install_path>
+  ```
+- Compile and install:
+  ```bash
+  make
+  make install
+  ```
+
+### 5. Verify the Installation
+- Ensure the `sst` executable is in your PATH, then check the version:
+  ```bash
+  export PATH=<install_path>/bin:$PATH
+  sst --version
+  ```
+
+---
+
+Feel free to consult the [official guide](https://sst-simulator.org/SSTPages/SSTBuildAndInstall_14dot1dot0_SeriesQuickStart/) for troubleshooting or further customization.
+
    
