@@ -46,16 +46,64 @@ for x in range(cores):
         "verbose" : 0,
     })
 
+
     cpugen = cpu.setSubComponent("generator", "miranda.GUPSGenerator")
     cpugen.addParams({
-        "iterations" : 100,
-        "count" : 1000,
-        "reqLength" : 16,
-        "memStart" : 0,
-        "memLength" : "512MB",
-        "seed_a" : 11+x,
-        "seed_b" : 31+x,
+            "iterations" : 100,
+            "count" : 100,
+            "reqLength" : 16,
+            "memStart" : 0,
+            "memLength" : "512MB",
+            "seed_a" : 11,
+            "seed_b" : 31,
     })
+    # gen = cpu.setSubComponent("generator", "miranda.STREAMBenchGenerator")
+    # gen.addParams({
+    # 	"verbose" : 0,
+    # 	"n" : 10000,
+    #         "operandwidth" : 16,
+    # })
+    # gen = cpu.setSubComponent("generator", "miranda.SPMVGenerator")
+    # gen.addParams({
+    #     "matrix_nx" : 3000,
+    #     "matrix_ny" : 3000,
+    #     "element_width" : 8,
+    #     "lhs_start_addr" : 0,
+    #     "rhs_start_addr" : 3000,
+    #     "local_row_start" : 0,
+    #     "local_row_end" : 10000,
+    #     "ordinal_width" : 8,
+    #     "matrix_row_indices_start_addr" : 0,
+    #     "matrix_col_indices_start_addr" : 0,
+    #     "matrix_element_start_addr" : 0,
+    #     "iterations" : 1,
+    #     "matrix_nnz_per_row" : 9
+    # })
+    # gen = cpu.setSubComponent("generator", "miranda.Stencil3DBenchGenerator")
+    # gen.addParams({
+    #     "verbose" : 0,
+    #     "nx" : 20,
+    #     "ny" : 20,
+    #     "nz" : 20,
+    #     "datawidth" : 8,
+    #     "startz" : 0,
+    #     "endz" : 20,
+    #     "iterations" : 1,
+    # })
+    # gen = cpu.setSubComponent("generator", "miranda.Stake")
+    # gen.addParams({
+    #     "verbose" : 0,
+    #     "log" : "false",
+    #     "cores" : 1,
+    #     "mem_size" : "2048",
+    #     "pc" : "0x80000000",
+    #     "isa" : "RV64IMAFDC",
+    #     "proxy_kernel" : "pk",
+    #     "bin" : "./mult.mem",
+    #     "args" : "",
+    #     "ext" : "",
+    #     "extlib" : ""
+    # })
 
     iface = cpu.setSubComponent("memory", "memHierarchy.standardInterface")
     
@@ -131,7 +179,12 @@ for x in range(caches):
         "debug": DEBUG_L3,
         "debug_level": 10,
     })
-    l3cache.setSubComponent("prefetcher", "cassini.NextBlockPrefetcher")
+
+    ###########
+    #Important#
+    ###########
+    # Only change this prefetcher to verify the prefetcher of Cloak architecture
+    l3cache.setSubComponent("prefetcher", "cassini.SESPrefetcher")
 
     # Configure MemNIC for L3
     l3_mem_nic = l3cache.setSubComponent("memlink", "memHierarchy.MemNIC")
