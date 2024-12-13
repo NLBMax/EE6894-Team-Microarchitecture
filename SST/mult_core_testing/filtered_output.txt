@@ -331,7 +331,7 @@ Simulation is complete, simulated time: 104.184 us
 
 -------------------------------
 
---- /home/msi/scratch/src/sst-elements-library-14.0.0/src/sst/elements/memHierarchy/tests/spmv_paraprefetch.log ---
+--- /home/msi/scratch/src/sst-elements-library-14.0.0/src/sst/elements/memHierarchy/tests/spmv_palaprefetch.log ---
  l1cache0.CacheHits : Accumulator : Sum.u64 = 117313; SumSQ.u64 = 117313; Count.u64 = 117313; Min.u64 = 1; Max.u64 = 1; 
  l1cache0.CacheMisses : Accumulator : Sum.u64 = 7934; SumSQ.u64 = 7934; Count.u64 = 7934; Min.u64 = 1; Max.u64 = 1; 
  l2cache0.CacheHits : Accumulator : Sum.u64 = 1576; SumSQ.u64 = 1576; Count.u64 = 1576; Min.u64 = 1; Max.u64 = 1; 
@@ -405,7 +405,7 @@ Simulation is complete, simulated time: 166.734 us
 
 -------------------------------
 
---- /home/msi/scratch/src/sst-elements-library-14.0.0/src/sst/elements/memHierarchy/tests/stream_paraprefetch.log ---
+--- /home/msi/scratch/src/sst-elements-library-14.0.0/src/sst/elements/memHierarchy/tests/stream_palaprefetch.log ---
  l1cache0.CacheHits : Accumulator : Sum.u64 = 23846; SumSQ.u64 = 23846; Count.u64 = 23846; Min.u64 = 1; Max.u64 = 1; 
  l1cache0.CacheMisses : Accumulator : Sum.u64 = 8151; SumSQ.u64 = 8151; Count.u64 = 8151; Min.u64 = 1; Max.u64 = 1; 
  l2cache0.CacheHits : Accumulator : Sum.u64 = 104; SumSQ.u64 = 104; Count.u64 = 104; Min.u64 = 1; Max.u64 = 1; 
@@ -516,7 +516,7 @@ Simulation is complete, simulated time: 165.288 us
 
 -------------------------------
 
---- /home/msi/scratch/src/sst-elements-library-14.0.0/src/sst/elements/memHierarchy/tests/stencil_paraprefetch.log ---
+--- /home/msi/scratch/src/sst-elements-library-14.0.0/src/sst/elements/memHierarchy/tests/stencil_palaprefetch.log ---
  l1cache0.CacheHits : Accumulator : Sum.u64 = 161916; SumSQ.u64 = 161916; Count.u64 = 161916; Min.u64 = 1; Max.u64 = 1; 
  l1cache0.CacheMisses : Accumulator : Sum.u64 = 2753; SumSQ.u64 = 2753; Count.u64 = 2753; Min.u64 = 1; Max.u64 = 1; 
  l2cache0.CacheHits : Accumulator : Sum.u64 = 266; SumSQ.u64 = 266; Count.u64 = 266; Min.u64 = 1; Max.u64 = 1; 
@@ -590,7 +590,7 @@ Simulation is complete, simulated time: 158.156 us
 
 -------------------------------
 
---- /home/msi/scratch/src/sst-elements-library-14.0.0/src/sst/elements/memHierarchy/tests/gups_paraprefetch.log ---
+--- /home/msi/scratch/src/sst-elements-library-14.0.0/src/sst/elements/memHierarchy/tests/gups_palaprefetch.log ---
  l1cache0.CacheHits : Accumulator : Sum.u64 = 2928; SumSQ.u64 = 2928; Count.u64 = 2928; Min.u64 = 1; Max.u64 = 1; 
  l1cache0.CacheMisses : Accumulator : Sum.u64 = 18889; SumSQ.u64 = 18889; Count.u64 = 18889; Min.u64 = 1; Max.u64 = 1; 
  l2cache0.CacheHits : Accumulator : Sum.u64 = 676; SumSQ.u64 = 676; Count.u64 = 676; Min.u64 = 1; Max.u64 = 1; 
