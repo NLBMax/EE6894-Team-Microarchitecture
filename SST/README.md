@@ -1,5 +1,7 @@
 # EE6894-Team-Microarchitecture
 This is a project that builds the Cloak design on SST.
+The main experiment can be found in the folder: mult_core_testing
+The experiment under the folder "single_core_testing" includes the experiment of running programs with RISC-V CPU. Only single-core designs are implemented. Installation can be found in the readme in "single_core_testing". 
 
 # Installing Structural Simulation Toolkit (SST) 14.1.x
 
